@@ -25,13 +25,14 @@ CachedNsNp[ns_,np_]:=CachedNsNp[ns,np]=Apply[And,Map[(#<0)&,Part[Transpose@Delet
 InnerCollectFunction=Factor;
 
 
-ApartIR/:MakeBoxes[ApartIR[pcs_List,cs_List,np_List,vars_List],TraditionalForm]:=With[{exp=Apply[Times,(Map[(#.vars)&,pcs]+cs)^np]},RowBox[{"\[LeftDoubleBracketingBar]",MakeBoxes[exp,TraditionalForm],"\[RightDoubleBracketingBar]"}]];
+ClearAll[ApartIR];
+ApartIR/:MakeBoxes[ApartIR[pcs_List,cs_List,np_List,vars_List],TraditionalForm]:=With[{exp=Apply[Times,(Defer[Evaluate[#]]&/@(Map[(#.vars)&,pcs]+cs))^np]},RowBox[{"\[LeftDoubleBracketingBar]",MakeBoxes[exp,TraditionalForm],"\[RightDoubleBracketingBar]"}]];
 
 
 ApartIRSort[exp_]:=exp/.ApartIR[pcs_,cs_,np_,vars_]:>ApartIR[Sequence@@PcsCsNpSort[pcs,cs,np],vars];
 
 
-PcsCsNpSort[pcs_List,cs_List,np_List]:=PcsCsNpSort[pcs,cs,np]=Transpose@Sort[Transpose[{pcs,cs,np}],Less[Part[#1,1],Part[#2,1]]&]
+PcsCsNpSort[pcs_List,cs_List,np_List]:=PcsCsNpSort[pcs,cs,np]=Transpose@Sort[Transpose[{pcs,cs,np}],Function[{x,y},Order[Part[x,1],Part[y,1]]>0]]
 
 
 Clear[InnerApart,CachedApart];
@@ -112,6 +113,20 @@ InnerLog[x_ y_]:=InnerLog[x]+InnerLog[y];
 InnerLog[Power[x_,y_Integer]]:=y InnerLog[x];
 
 
+ClearAll[SignVarsQ];
+SignVars::msg="SignVars->{vars} is an Options of SignVarsQ";
+VarsSign::msg="VarsSign->\!\(\*
+StyleBox[\"\[PlusMinus]\", \"OperatorCharacter\"]\)\!\(\*
+StyleBox[\"1\", \"OperatorCharacter\"]\) is an Options of SignVarsQ";
+Options[SignVarsQ]={SignVars->{},VarsSign->-1};
+SignVarsQ[exp_,OptionsPattern[SignVarsQ]]:=Block[{tmp},
+tmp=Map[Coefficient[exp,#]&,OptionValue[SignVars]];
+tmp=DeleteCases[tmp,0];
+If[Length[tmp]==0,Return[True]];
+Return[tmp[[1]] OptionValue[VarsSign]>0];
+];
+
+
 Clear[ApartAll];
 ApartAll[exp_Plus,vars_List]:=Module[{VF},Distribute[VF[exp]]/.VF[x_]:>ApartAll[x,vars]];
 ApartAll[exp_,vars_List]:=Module[{tmp,logs,VF},
@@ -119,7 +134,9 @@ tmp=InnerLog[Factor[exp]];
 logs=Union[Cases[tmp,_InnerLog,{0,Infinity}]]/.InnerLog->Identity;
 Scan[Function[x,If[Not[PolynomialQ[x,vars]||FreeQ[x,Alternatives@@vars]],Print["Error: ",x," is not Polynomial of ",vars];Abort[]]],logs];
 Scan[Function[x,If[Length[Normal[CoefficientArrays[x,vars]]]>2,Print["Error: ",x," is not Linear Polynomial of ",vars];Abort[]]],logs];
-tmp=tmp/.c_. InnerLog[y_]:>VF[Normal@CoefficientArrays[y,vars],c];
+tmp=tmp/.InnerLog[y_]:>If[SignVarsQ[y],InnerLog[y],InnerLog[Hold[-y]]+InnerLog[-1]];
+tmp=Collect[tmp,_InnerLog];
+tmp=tmp/.c_. InnerLog[y_]:>VF[Normal@CoefficientArrays[ReleaseHold[y],vars],c];
 On[Assert];Assert[Factor[tmp-(Plus@@Cases[tmp,_VF,{0,Infinity}])]===0];
 tmp=Cases[tmp,_VF,{0,Infinity}];
 tmp=tmp/.VF[p_List,np_]:>{If[Length[p]<2,Array[0&,Length[vars]],Part[p,2]],Part[p,1],np};
