@@ -114,10 +114,8 @@ InnerLog[Power[x_,y_Integer]]:=y InnerLog[x];
 
 
 ClearAll[SignVarsQ];
-SignVars::msg="SignVars->{vars} is an Options of SignVarsQ";
-VarsSign::msg="VarsSign->\!\(\*
-StyleBox[\"\[PlusMinus]\", \"OperatorCharacter\"]\)\!\(\*
-StyleBox[\"1\", \"OperatorCharacter\"]\) is an Options of SignVarsQ";
+SignVars::usage="SignVars->{vars} is an Options of SignVarsQ";
+VarsSign::usage="VarsSign->1 or -1 is an Options of SignVarsQ";
 Options[SignVarsQ]={SignVars->{},VarsSign->-1};
 SignVarsQ[exp_,OptionsPattern[SignVarsQ]]:=Block[{tmp},
 tmp=Map[Coefficient[exp,#]&,OptionValue[SignVars]];
