@@ -174,6 +174,7 @@ tmp=VF[tmp2]/.rules/.VF->Identity;
 If[tmp2=!=tmp,
 tmp2={pcs,cs,PadRight[ns,Length[tmp]+Length[ns]],vars};
 Scan[Function[ele,AppendTo[tmp2[[1]],ele[[;;-2]]];AppendTo[tmp2[[2]],ele[[-1]]];],tmp];
+Part[tmp2,1;;3]=Apply[PcsCsNpSort,Part[tmp2,1;;3]];
 ApartIR@@tmp2,
 air]);
 Clear[tmp,tmp2,rules,VF];
