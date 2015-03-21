@@ -8,7 +8,7 @@ Clear[CachedNullSpace];
 CachedNullSpace[pcs_,cs_]:=Module[{ns,tmp1,tmp2},
 ns=NullSpace[Transpose@pcs]//Factor;
 If[Length[ns]<1,Return[False];];
-ns=Sort[ns,Count[#1,0]>Count[#2,0]&];
+ns=Sort[ns,Count[#1,0]>=Count[#2,0]&];
 ns=First[ns];
 CachedNullSpace[pcs,cs]=ns;
 Clear[tmp1,tmp2];
@@ -136,6 +136,7 @@ tmp=tmp/.InnerLog[y_]:>VF[y/VarsCoefficient[y]//Factor]+InnerLog[VarsCoefficient
 tmp=tmp/.InnerLog[1]->0/.VF[x_]:>InnerLog[Hold[x]];
 tmp=Collect[tmp,_InnerLog];
 tmp=tmp/.c_. InnerLog[y_]:>VF[Normal@CoefficientArrays[ReleaseHold[y],vars],c];
+tmp=tmp/.c_. VF[y_,n_]:>VF[y, c n];
 On[Assert];Assert[Factor[tmp-(Plus@@Cases[tmp,_VF,{0,Infinity}])]===0];
 tmp=Cases[tmp,_VF,{0,Infinity}];
 tmp=tmp/.VF[p_List,np_]:>{If[Length[p]<2,Array[0&,Length[vars]],Part[p,2]],Part[p,1],np};
