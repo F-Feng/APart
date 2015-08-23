@@ -1,6 +1,6 @@
 (* ::Package:: *)
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*InnerApart*)
 
 
@@ -104,7 +104,7 @@ Return[tmp];
 ];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*InnerLog & ApartParse*)
 
 
@@ -149,7 +149,7 @@ Return[tmp];
 ];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Some Auxiliary Function*)
 
 
@@ -211,3 +211,10 @@ RemoveApart[exp_]:=exp/.ApartIR[pcs_,cs_,np_,vars_]:>Apply[Times,(Map[(#.vars)&,
 
 
 FireArguments[ApartIR[pcs_,cs_,np_,vars_],p2pn_:Identity]:=FireArguments[ApartIR[pcs,cs,np,vars],p2pn]=Sequence[p2pn[Map[(#.vars)&,pcs]+cs],-np];
+
+
+(* ::Subsection:: *)
+(*Mathematica 9 & Below*)
+
+
+If[Head[FirstPosition[{1, 1}, 1]]===FirstPosition,FirstPosition[x___]:=First[Position[x]]];
