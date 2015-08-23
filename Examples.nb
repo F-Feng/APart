@@ -1,0 +1,4794 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 6.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[    145814,       4785]
+NotebookOptionsPosition[    142404,       4661]
+NotebookOutlinePosition[    142858,       4679]
+CellTagsIndexPosition[    142815,       4676]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Load Packages", "Section",
+ CellChangeTimes->{{3.647658967588533*^9, 3.6476589697482862`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"<<", "\"\<HighEnergyPhysics`fc`\>\""}], ";"}]], "Input"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Get", "[", "\"\<Apart.m\>\"", "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ResetDirectory", "[", "]"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.6476589335750713`*^9, 3.647658941877322*^9}, {
+  3.6491544961970243`*^9, 3.649154532778329*^9}, {3.6492996287189546`*^9, 
+  3.649299665736568*^9}, {3.649301995460925*^9, 3.6493019964114313`*^9}, {
+  3.6493020264773827`*^9, 3.649302028827572*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"SetOptions", "[", 
+   RowBox[{"$FrontEnd", ",", 
+    RowBox[{"CommonDefaultFormatTypes", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"\"\<Output\>\"", "\[Rule]", "TraditionalForm"}], "}"}]}]}], 
+   "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.539469062186462*^9, 3.539469079094429*^9}, 
+   3.5394703683751717`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Basic Examples", "Section",
+ CellChangeTimes->{{3.5382723823054514`*^9, 3.538272383538522*^9}, {
+  3.647658962557832*^9, 3.647658977019766*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"exp1", "=", 
+  FractionBox["1", 
+   RowBox[{"x", " ", "y", " ", "z", " ", 
+    RowBox[{"(", 
+     RowBox[{"x", "+", "y", "+", "a"}], ")"}], " ", 
+    RowBox[{"(", 
+     RowBox[{"x", "+", "y", "+", "z", "+", "b"}], ")"}]}]]}]], "Input",
+ CellChangeTimes->{{3.5148060833377047`*^9, 3.5148060900457163`*^9}, {
+  3.538272315456628*^9, 3.5382723362768188`*^9}, {3.647658980003935*^9, 
+  3.647658995451098*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  FractionBox["1", 
+   RowBox[{"x", " ", "y", " ", "z", " ", 
+    RowBox[{"(", 
+     RowBox[{"a", "+", "x", "+", "y"}], ")"}], " ", 
+    RowBox[{"(", 
+     RowBox[{"b", "+", "x", "+", "y", "+", "z"}], ")"}]}]], 
+  TraditionalForm]], "Output",
+ CellChangeTimes->{
+  3.514806104038941*^9, 3.514806826257809*^9, 3.514807012773375*^9, 
+   3.5150297506564384`*^9, 3.538106025541833*^9, 3.5382636931534605`*^9, 
+   3.5382723391409826`*^9, 3.538274758976389*^9, 3.53827573054196*^9, 
+   3.5382757778676662`*^9, 3.5382778713544073`*^9, 3.538278094615177*^9, 
+   3.5382783443204594`*^9, 3.538280261895138*^9, 3.5382802923318787`*^9, 
+   3.5382803816079855`*^9, 3.5382807438327036`*^9, 3.538280795153639*^9, 
+   3.5395974365772395`*^9, 3.647658639679673*^9, 3.647658996449856*^9, 
+   3.647659339440463*^9, {3.647659447451034*^9, 3.64765946148415*^9}, 
+   3.647659695137519*^9, 3.647660645599578*^9, 3.647673812709651*^9, 
+   3.649154558096795*^9, 3.649299635785528*^9, 3.649299684253185*^9, 
+   3.649300307738467*^9, {3.6493003538817883`*^9, 3.6493003889182653`*^9}, 
+   3.649300822467002*^9, 3.649300909547845*^9, 3.6493009996860657`*^9, {
+   3.649302001417633*^9, 3.649302017937381*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"dexp1", "=", 
+  RowBox[{"ApartAll", "[", 
+   RowBox[{"exp1", ",", 
+    RowBox[{"{", 
+     RowBox[{"x", ",", "y", ",", "z"}], "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.514692251796114*^9, 3.5146922651497374`*^9}, {
+   3.514693486539423*^9, 3.514693521233884*^9}, {3.5146935529799395`*^9, 
+   3.5146935726047745`*^9}, {3.5146936364556866`*^9, 
+   3.5146936399812927`*^9}, {3.51469395160744*^9, 3.5146939523718414`*^9}, {
+   3.5146953549833584`*^9, 3.51469535571656*^9}, {3.5146954044822454`*^9, 
+   3.514695408912653*^9}, {3.5146957523339777`*^9, 3.5146957730508137`*^9}, {
+   3.5146971047627525`*^9, 3.5146971363372087`*^9}, 3.514697390118454*^9, {
+   3.5146974722213984`*^9, 3.514697472470999*^9}, {3.5146976146184483`*^9, 
+   3.5146976437748995`*^9}, {3.5146979835122967`*^9, 
+   3.5146980923380876`*^9}, {3.5146982505714903`*^9, 3.514698252006693*^9}, {
+   3.5146983033931828`*^9, 3.5146983042043843`*^9}, {3.514699118744215*^9, 
+   3.514699121084219*^9}, {3.514699372217146*^9, 3.51469937446355*^9}, {
+   3.5146999413954225`*^9, 3.5146999542342453`*^9}, {3.5146999900675077`*^9, 
+   3.514699990816309*^9}, {3.514700485430778*^9, 3.514700485695978*^9}, {
+   3.514700559591374*^9, 3.514700607280658*^9}, {3.514700719320055*^9, 
+   3.514700727400869*^9}, {3.514700768288541*^9, 3.5147007686317415`*^9}, {
+   3.5147008172258263`*^9, 3.5147008175222273`*^9}, {3.5147008997499714`*^9, 
+   3.514700899983972*^9}, {3.514701678222539*^9, 3.5147016785501394`*^9}, 
+   3.5147018541284475`*^9, {3.514702080961907*^9, 3.5147020875451183`*^9}, {
+   3.5147101767344522`*^9, 3.5147101902908754`*^9}, {3.5147102736660433`*^9, 
+   3.5147103489985757`*^9}, {3.5147103996915565`*^9, 
+   3.5147104267264037`*^9}, {3.514710701374547*^9, 3.514710736505809*^9}, {
+   3.514711914272834*^9, 3.51471195751611*^9}, {3.5147126924646006`*^9, 
+   3.5147127280482635`*^9}, {3.514712817686021*^9, 3.514712842162464*^9}, {
+   3.5147128978389616`*^9, 3.514712921722604*^9}, {3.5147129982573843`*^9, 
+   3.514713011564208*^9}, {3.514713406822102*^9, 3.51471341707132*^9}, {
+   3.5147147559990563`*^9, 3.514714787651512*^9}, {3.514714829303585*^9, 
+   3.5147148295531855`*^9}, {3.514715007549498*^9, 3.514715119448495*^9}, {
+   3.514715451791478*^9, 3.514715453725882*^9}, {3.5147156355910015`*^9, 
+   3.514715732903972*^9}, {3.5147160272656364`*^9, 3.5147160275464373`*^9}, {
+   3.5147663015057364`*^9, 3.5147663130965567`*^9}, {3.5147666587463636`*^9, 
+   3.5147666865456123`*^9}, {3.514766852741252*^9, 3.5147668890743303`*^9}, {
+   3.5147669730611343`*^9, 3.5147670015867653`*^9}, {3.5147674685038395`*^9, 
+   3.5147674964590883`*^9}, 3.514806091761719*^9, {3.538272343185214*^9, 
+   3.5382723664445443`*^9}, {3.5382724853313437`*^9, 
+   3.5382724880074973`*^9}, {3.6476586419387693`*^9, 
+   3.6476586458556557`*^9}, {3.647658999628133*^9, 3.647659011151422*^9}, {
+   3.6476590458322372`*^9, 3.647659046044016*^9}, {3.647660569237484*^9, 
+   3.6476605801827803`*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   FractionBox[
+    RowBox[{"\[LeftDoubleBracketingBar]", 
+     FractionBox["1", 
+      RowBox[{"x", " ", "y", " ", "z"}]], "\[RightDoubleBracketingBar]"}], 
+    RowBox[{"a", " ", "b"}]], "+", 
+   FractionBox[
+    RowBox[{"\[LeftDoubleBracketingBar]", 
+     FractionBox["1", 
+      RowBox[{"y", " ", "z", " ", 
+       RowBox[{"(", 
+        RowBox[{"a", "+", "x", "+", "y"}], ")"}]}]], 
+     "\[RightDoubleBracketingBar]"}], 
+    RowBox[{"a", " ", 
+     RowBox[{"(", 
+      RowBox[{"a", "-", "b"}], ")"}]}]], "-", 
+   FractionBox[
+    RowBox[{"\[LeftDoubleBracketingBar]", 
+     FractionBox["1", 
+      RowBox[{"y", " ", "z", " ", 
+       RowBox[{"(", 
+        RowBox[{"b", "+", "x", "+", "y", "+", "z"}], ")"}]}]], 
+     "\[RightDoubleBracketingBar]"}], 
+    RowBox[{"b", " ", 
+     RowBox[{"(", 
+      RowBox[{"a", "-", "b"}], ")"}]}]], "+", 
+   FractionBox[
+    RowBox[{"\[LeftDoubleBracketingBar]", 
+     FractionBox["1", 
+      RowBox[{"x", " ", "z", " ", 
+       RowBox[{"(", 
+        RowBox[{"a", "+", "x", "+", "y"}], ")"}]}]], 
+     "\[RightDoubleBracketingBar]"}], 
+    RowBox[{"a", " ", 
+     RowBox[{"(", 
+      RowBox[{"a", "-", "b"}], ")"}]}]], "-", 
+   FractionBox[
+    RowBox[{"\[LeftDoubleBracketingBar]", 
+     FractionBox["1", 
+      RowBox[{"x", " ", "z", " ", 
+       RowBox[{"(", 
+        RowBox[{"b", "+", "x", "+", "y", "+", "z"}], ")"}]}]], 
+     "\[RightDoubleBracketingBar]"}], 
+    RowBox[{"b", " ", 
+     RowBox[{"(", 
+      RowBox[{"a", "-", "b"}], ")"}]}]], "-", 
+   FractionBox[
+    RowBox[{"\[LeftDoubleBracketingBar]", 
+     FractionBox["1", 
+      RowBox[{"x", " ", "y", " ", 
+       RowBox[{"(", 
+        RowBox[{"b", "+", "x", "+", "y", "+", "z"}], ")"}]}]], 
+     "\[RightDoubleBracketingBar]"}], 
+    RowBox[{"a", " ", "b"}]], "-", 
+   FractionBox[
+    RowBox[{"\[LeftDoubleBracketingBar]", 
+     FractionBox["1", 
+      RowBox[{"y", " ", 
+       RowBox[{"(", 
+        RowBox[{"a", "+", "x", "+", "y"}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{"b", "+", "x", "+", "y", "+", "z"}], ")"}]}]], 
+     "\[RightDoubleBracketingBar]"}], 
+    RowBox[{"a", " ", 
+     RowBox[{"(", 
+      RowBox[{"a", "-", "b"}], ")"}]}]], "-", 
+   FractionBox[
+    RowBox[{"\[LeftDoubleBracketingBar]", 
+     FractionBox["1", 
+      RowBox[{"x", " ", 
+       RowBox[{"(", 
+        RowBox[{"a", "+", "x", "+", "y"}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{"b", "+", "x", "+", "y", "+", "z"}], ")"}]}]], 
+     "\[RightDoubleBracketingBar]"}], 
+    RowBox[{"a", " ", 
+     RowBox[{"(", 
+      RowBox[{"a", "-", "b"}], ")"}]}]]}], TraditionalForm]], "Output",
+ CellChangeTimes->{
+  3.538272367038578*^9, 3.5382724887065372`*^9, 3.5382747590293922`*^9, 
+   3.5382757306009626`*^9, 3.538275777913669*^9, 3.5382778714544125`*^9, 
+   3.5382780946581793`*^9, 3.538278344390463*^9, 3.5382802620011444`*^9, 
+   3.5382802923778815`*^9, 3.538280381672989*^9, 3.538280743895707*^9, 
+   3.538280795223643*^9, 3.5395974366602445`*^9, 3.647658647125799*^9, {
+   3.647659000310923*^9, 3.647659011616914*^9}, 3.647659053337432*^9, 
+   3.6476593395342827`*^9, {3.6476594475396442`*^9, 3.64765946158533*^9}, 
+   3.647659695220612*^9, {3.6476605714660883`*^9, 3.6476605806438*^9}, 
+   3.647660645698689*^9, 3.6476738127842197`*^9, 3.649154558379777*^9, 
+   3.6492996853919554`*^9, 3.649300308690037*^9, {3.6493003447404814`*^9, 
+   3.649300389807437*^9}, 3.6493004337748337`*^9, 3.6493008225605993`*^9, 
+   3.6493009096570406`*^9, 3.649301000548834*^9, {3.649302002111176*^9, 
+   3.649302018014686*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"dexp1", "//", "InputForm"}]], "Input",
+ CellChangeTimes->{{3.5382747334039264`*^9, 3.5382747393482666`*^9}, {
+  3.647659055861587*^9, 3.647659056105969*^9}}],
+
+Cell["\<\
+ApartIR[{{0, 0, 1}, {0, 1, 0}, {1, 0, 0}}, {0, 0, 0}, {-1, -1, -1}, {x, y, \
+z}]/(a*b) + 
+ ApartIR[{{0, 0, 1}, {0, 1, 0}, {1, 1, 0}}, {0, 0, a}, {-1, -1, -1}, {x, y, \
+z}]/(a*(a - b)) - 
+ ApartIR[{{0, 0, 1}, {0, 1, 0}, {1, 1, 1}}, {0, 0, b}, {-1, -1, -1}, {x, y, \
+z}]/((a - b)*b) + 
+ ApartIR[{{0, 0, 1}, {1, 0, 0}, {1, 1, 0}}, {0, 0, a}, {-1, -1, -1}, {x, y, \
+z}]/(a*(a - b)) - 
+ ApartIR[{{0, 0, 1}, {1, 0, 0}, {1, 1, 1}}, {0, 0, b}, {-1, -1, -1}, {x, y, \
+z}]/((a - b)*b) - 
+ ApartIR[{{0, 1, 0}, {1, 0, 0}, {1, 1, 1}}, {0, 0, b}, {-1, -1, -1}, {x, y, \
+z}]/(a*b) - 
+ ApartIR[{{0, 1, 0}, {1, 1, 0}, {1, 1, 1}}, {0, a, b}, {-1, -1, -1}, {x, y, \
+z}]/(a*(a - b)) - 
+ ApartIR[{{1, 0, 0}, {1, 1, 0}, {1, 1, 1}}, {0, a, b}, {-1, -1, -1}, {x, y, \
+z}]/(a*(a - b))\
+\>", "Output",
+ CellChangeTimes->{
+  3.538274759073395*^9, 3.5382757306439657`*^9, 3.538275777945671*^9, 
+   3.5382778715394173`*^9, 3.538278094688181*^9, 3.538278344443466*^9, 
+   3.5382802620241456`*^9, 3.538280292403883*^9, 3.538280381732992*^9, 
+   3.5382807439207087`*^9, 3.5382807952846465`*^9, 3.539597436691246*^9, 
+   3.647658650406769*^9, 3.647659022490283*^9, 3.647659056464816*^9, 
+   3.647659339559308*^9, {3.647659447590993*^9, 3.647659461636838*^9}, 
+   3.647659695253316*^9, 3.6476606457498293`*^9, 3.6476738128097773`*^9, 
+   3.6491545584280167`*^9, 3.649299686702322*^9, 3.6493004418241243`*^9, 
+   3.649300822591799*^9, 3.649300909688239*^9, 3.649301001493412*^9, {
+   3.649302002762455*^9, 3.649302018051437*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"exp1", "-", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"dexp1", "//", "RemoveApart"}], "//", "Simplify"}], ")"}]}], "//",
+   "Simplify"}]], "Input",
+ CellChangeTimes->{{3.5148060496416454`*^9, 3.514806141837807*^9}, {
+   3.5382723716548424`*^9, 3.5382723751540422`*^9}, 3.647658656286908*^9, {
+   3.647659043335021*^9, 3.647659059006317*^9}}],
+
+Cell[BoxData[
+ FormBox["0", TraditionalForm]], "Output",
+ CellChangeTimes->{{3.5148060521532497`*^9, 3.5148061424306087`*^9}, 
+   3.514807218444136*^9, 3.5150297529340425`*^9, 3.5381060283389926`*^9, 
+   3.5382636938965025`*^9, 3.5382723759220867`*^9, 3.5382747591173973`*^9, 
+   3.5382757306939683`*^9, 3.538275777979673*^9, 3.5382778716274223`*^9, 
+   3.538278094719183*^9, 3.5382783444994698`*^9, 3.538280262052147*^9, 
+   3.538280292431885*^9, 3.538280381758994*^9, 3.53828074395171*^9, 
+   3.53828079534765*^9, 3.5395974367202477`*^9, {3.647658652630055*^9, 
+   3.647658656913221*^9}, 3.6476590596388187`*^9, 3.6476593396108513`*^9, {
+   3.647659447640518*^9, 3.647659461686336*^9}, 3.647659695305999*^9, 
+   3.647660645834231*^9, 3.647673812858614*^9, 3.649154558525495*^9, 
+   3.64929968834028*^9, 3.64930044399244*^9, 3.6493008226229978`*^9, 
+   3.6493009097350373`*^9, 3.649301003686035*^9, {3.6493020043433847`*^9, 
+   3.64930201810452*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Physical Examples - One Loop", "Section",
+ CellChangeTimes->{{3.64765906488136*^9, 3.6476590682485247`*^9}, {
+  3.647660662721105*^9, 3.6476606663117123`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"bas", "=", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"SPD", "[", "k", "]"}], ",", 
+     RowBox[{"SPD", "[", 
+      RowBox[{"k", ",", "p1"}], "]"}], ",", 
+     RowBox[{"SPD", "[", 
+      RowBox[{"k", ",", "p2"}], "]"}]}], "}"}], "//", "FCI"}]}]], "Input",
+ CellChangeTimes->{{3.647659075577931*^9, 3.647659096480947*^9}, {
+  3.6476592199756393`*^9, 3.64765924108881*^9}, {3.647659600671789*^9, 
+  3.647659608055295*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"{", 
+   RowBox[{
+    SuperscriptBox[
+     FormBox["k",
+      TraditionalForm], "2"], ",", 
+    RowBox[{
+     FormBox["k",
+      TraditionalForm], "\[CenterDot]", 
+     FormBox["p1",
+      TraditionalForm]}], ",", 
+    RowBox[{
+     FormBox["k",
+      TraditionalForm], "\[CenterDot]", 
+     FormBox["p2",
+      TraditionalForm]}]}], "}"}], TraditionalForm]], "Output",
+ CellChangeTimes->{
+  3.647659097053619*^9, {3.6476592246503*^9, 3.647659241609795*^9}, 
+   3.647659292077401*^9, 3.647659342414413*^9, {3.647659447676777*^9, 
+   3.647659461717896*^9}, {3.647659605241255*^9, 3.6476596086259336`*^9}, 
+   3.6476596953546743`*^9, 3.647660645883596*^9, 3.647668058654572*^9, 
+   3.647670150397513*^9, 3.6476738129090233`*^9, 3.6492996896038475`*^9, 
+   3.649300446503944*^9, 3.649300822669797*^9, 3.6493009097662363`*^9, {
+   3.649301004769227*^9, 3.649301017556468*^9}, {3.6493020055417433`*^9, 
+   3.649302018150919*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"exp2", "=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      FractionBox["1", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"SPD", "[", "k", "]"}], "-", 
+         SuperscriptBox["m", "2"]}], ")"}]], 
+      FractionBox["1", 
+       RowBox[{"SPD", "[", 
+        RowBox[{"k", "+", "p1"}], "]"}]], 
+      FractionBox["1", 
+       RowBox[{
+        RowBox[{"SPD", "[", 
+         RowBox[{"k", "+", "p2"}], "]"}], "-", 
+        SuperscriptBox["m", "2"]}]], 
+      FractionBox["1", 
+       RowBox[{
+        RowBox[{"SPD", "[", 
+         RowBox[{"k", "+", "p1", "+", "p2"}], "]"}], "-", 
+        SuperscriptBox["m", "2"]}]], 
+      FractionBox["1", 
+       RowBox[{"SPD", "[", 
+        RowBox[{"k", "+", "p1", "-", "p2"}], "]"}]]}], "//", "FCI"}], "//", 
+    "MomentumExpand"}], "//", "ScalarProductExpand"}]}]], "Input",
+ CellChangeTimes->{{3.647659099386245*^9, 3.6476591538481693`*^9}, {
+  3.647659185224002*^9, 3.6476592120791492`*^9}, {3.647659869228641*^9, 
+  3.64765987818576*^9}, {3.6493001241019225`*^9, 3.6493001306849117`*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  FractionBox["1", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      SuperscriptBox[
+       FormBox["k",
+        TraditionalForm], "2"], "-", 
+      SuperscriptBox["m", "2"]}], ")"}], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"2", " ", 
+       RowBox[{
+        FormBox["k",
+         TraditionalForm], "\[CenterDot]", 
+        FormBox["p1",
+         TraditionalForm]}]}], "+", 
+      SuperscriptBox[
+       FormBox["k",
+        TraditionalForm], "2"], "+", 
+      SuperscriptBox[
+       FormBox["p1",
+        TraditionalForm], "2"]}], ")"}], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"2", " ", 
+       RowBox[{
+        FormBox["k",
+         TraditionalForm], "\[CenterDot]", 
+        FormBox["p2",
+         TraditionalForm]}]}], "+", 
+      SuperscriptBox[
+       FormBox["k",
+        TraditionalForm], "2"], "-", 
+      SuperscriptBox["m", "2"], "+", 
+      SuperscriptBox[
+       FormBox["p2",
+        TraditionalForm], "2"]}], ")"}], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"2", " ", 
+       RowBox[{
+        FormBox["k",
+         TraditionalForm], "\[CenterDot]", 
+        FormBox["p1",
+         TraditionalForm]}]}], "-", 
+      RowBox[{"2", " ", 
+       RowBox[{
+        FormBox["k",
+         TraditionalForm], "\[CenterDot]", 
+        FormBox["p2",
+         TraditionalForm]}]}], "+", 
+      SuperscriptBox[
+       FormBox["k",
+        TraditionalForm], "2"], "-", 
+      RowBox[{"2", " ", 
+       RowBox[{
+        FormBox["p1",
+         TraditionalForm], "\[CenterDot]", 
+        FormBox["p2",
+         TraditionalForm]}]}], "+", 
+      SuperscriptBox[
+       FormBox["p1",
+        TraditionalForm], "2"], "+", 
+      SuperscriptBox[
+       FormBox["p2",
+        TraditionalForm], "2"]}], ")"}], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"2", " ", 
+       RowBox[{
+        FormBox["k",
+         TraditionalForm], "\[CenterDot]", 
+        FormBox["p1",
+         TraditionalForm]}]}], "+", 
+      RowBox[{"2", " ", 
+       RowBox[{
+        FormBox["k",
+         TraditionalForm], "\[CenterDot]", 
+        FormBox["p2",
+         TraditionalForm]}]}], "+", 
+      SuperscriptBox[
+       FormBox["k",
+        TraditionalForm], "2"], "-", 
+      SuperscriptBox["m", "2"], "+", 
+      RowBox[{"2", " ", 
+       RowBox[{
+        FormBox["p1",
+         TraditionalForm], "\[CenterDot]", 
+        FormBox["p2",
+         TraditionalForm]}]}], "+", 
+      SuperscriptBox[
+       FormBox["p1",
+        TraditionalForm], "2"], "+", 
+      SuperscriptBox[
+       FormBox["p2",
+        TraditionalForm], "2"]}], ")"}]}]], TraditionalForm]], "Output",
+ CellChangeTimes->{{3.6476591498954153`*^9, 3.647659154448707*^9}, {
+   3.647659212483944*^9, 3.6476592424946938`*^9}, {3.647659276775949*^9, 
+   3.647659294719982*^9}, {3.64765932848039*^9, 3.6476593426031713`*^9}, {
+   3.64765944777512*^9, 3.647659461755138*^9}, 3.647659615356717*^9, 
+   3.647659695406913*^9, 3.647659880165797*^9, 3.647660645935018*^9, 
+   3.647673812960329*^9, 3.649299690945413*^9, 3.6493001309345036`*^9, 
+   3.6493004476582994`*^9, 3.6493008227165956`*^9, 3.649300909813034*^9, {
+   3.6493010055428267`*^9, 3.649301017706773*^9}, {3.6493020061983*^9, 
+   3.6493020182014008`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Normal Reduction", "Subsection",
+ CellChangeTimes->{{3.6476597063611107`*^9, 3.647659710951449*^9}, 
+   3.649302006892716*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"zz", "=", 
+  RowBox[{"ApartAll", "[", 
+   RowBox[{"exp2", ",", "bas"}], "]"}]}]], "Input",
+ CellChangeTimes->{
+  3.6492999795353613`*^9, {3.6493000548089437`*^9, 3.6493000590520077`*^9}, {
+   3.6493001652845864`*^9, 3.6493001656745715`*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{"-", 
+    FractionBox[
+     RowBox[{"\[LeftDoubleBracketingBar]", 
+      FractionBox["1", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          SuperscriptBox["m", "2"], "-", 
+          SuperscriptBox[
+           FormBox["k",
+            TraditionalForm], "2"]}], ")"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          SuperscriptBox["m", "2"], "-", 
+          SuperscriptBox[
+           FormBox["k",
+            TraditionalForm], "2"], "-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p2",
+             TraditionalForm]}]}], "-", 
+          SuperscriptBox[
+           FormBox["p2",
+            TraditionalForm], "2"]}], ")"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          SuperscriptBox["m", "2"], "-", 
+          SuperscriptBox[
+           FormBox["k",
+            TraditionalForm], "2"], "-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p1",
+             TraditionalForm]}]}], "-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p2",
+             TraditionalForm]}]}], "-", 
+          SuperscriptBox[
+           FormBox["p1",
+            TraditionalForm], "2"], "-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["p1",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p2",
+             TraditionalForm]}]}], "-", 
+          SuperscriptBox[
+           FormBox["p2",
+            TraditionalForm], "2"]}], ")"}]}]], 
+      "\[RightDoubleBracketingBar]"}], 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        SuperscriptBox["m", "2"], "-", 
+        RowBox[{"2", " ", 
+         RowBox[{
+          FormBox["p1",
+           TraditionalForm], "\[CenterDot]", 
+          FormBox["p2",
+           TraditionalForm]}]}]}], ")"}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        SuperscriptBox["m", "2"], "-", 
+        RowBox[{"4", " ", 
+         RowBox[{
+          FormBox["p1",
+           TraditionalForm], "\[CenterDot]", 
+          FormBox["p2",
+           TraditionalForm]}]}], "+", 
+        RowBox[{"2", " ", 
+         SuperscriptBox[
+          FormBox["p2",
+           TraditionalForm], "2"]}]}], ")"}]}]]}], "+", 
+   FractionBox[
+    RowBox[{"\[LeftDoubleBracketingBar]", 
+     FractionBox["1", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox[
+          FormBox["k",
+           TraditionalForm], "2"], "+", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox["m", "2"], "-", 
+         SuperscriptBox[
+          FormBox["k",
+           TraditionalForm], "2"], "-", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p2",
+            TraditionalForm]}]}], "-", 
+         SuperscriptBox[
+          FormBox["p2",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox["m", "2"], "-", 
+         SuperscriptBox[
+          FormBox["k",
+           TraditionalForm], "2"], "-", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "-", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p2",
+            TraditionalForm]}]}], "-", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"], "-", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["p1",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p2",
+            TraditionalForm]}]}], "-", 
+         SuperscriptBox[
+          FormBox["p2",
+           TraditionalForm], "2"]}], ")"}]}]], 
+     "\[RightDoubleBracketingBar]"}], 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["m", "2"], "-", 
+       RowBox[{"2", " ", 
+        RowBox[{
+         FormBox["p1",
+          TraditionalForm], "\[CenterDot]", 
+         FormBox["p2",
+          TraditionalForm]}]}]}], ")"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["m", "2"], "-", 
+       RowBox[{"2", " ", 
+        SuperscriptBox[
+         FormBox["p2",
+          TraditionalForm], "2"]}]}], ")"}]}]], "-", 
+   FractionBox[
+    RowBox[{"\[LeftDoubleBracketingBar]", 
+     FractionBox["1", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox["m", "2"], "-", 
+         SuperscriptBox[
+          FormBox["k",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox[
+          FormBox["k",
+           TraditionalForm], "2"], "+", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox["m", "2"], "-", 
+         SuperscriptBox[
+          FormBox["k",
+           TraditionalForm], "2"], "-", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "-", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p2",
+            TraditionalForm]}]}], "-", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"], "-", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["p1",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p2",
+            TraditionalForm]}]}], "-", 
+         SuperscriptBox[
+          FormBox["p2",
+           TraditionalForm], "2"]}], ")"}]}]], 
+     "\[RightDoubleBracketingBar]"}], 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["m", "2"], "-", 
+       RowBox[{"2", " ", 
+        RowBox[{
+         FormBox["p1",
+          TraditionalForm], "\[CenterDot]", 
+         FormBox["p2",
+          TraditionalForm]}]}]}], ")"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["m", "2"], "-", 
+       RowBox[{"2", " ", 
+        SuperscriptBox[
+         FormBox["p2",
+          TraditionalForm], "2"]}]}], ")"}]}]], "+", 
+   FractionBox[
+    RowBox[{"\[LeftDoubleBracketingBar]", 
+     FractionBox["1", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox["m", "2"], "-", 
+         SuperscriptBox[
+          FormBox["k",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox[
+          FormBox["k",
+           TraditionalForm], "2"], "+", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox["m", "2"], "-", 
+         SuperscriptBox[
+          FormBox["k",
+           TraditionalForm], "2"], "-", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p2",
+            TraditionalForm]}]}], "-", 
+         SuperscriptBox[
+          FormBox["p2",
+           TraditionalForm], "2"]}], ")"}]}]], 
+     "\[RightDoubleBracketingBar]"}], 
+    RowBox[{"2", " ", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["m", "2"], "-", 
+       RowBox[{"2", " ", 
+        RowBox[{
+         FormBox["p1",
+          TraditionalForm], "\[CenterDot]", 
+         FormBox["p2",
+          TraditionalForm]}]}]}], ")"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        FormBox["p1",
+         TraditionalForm], "\[CenterDot]", 
+        FormBox["p2",
+         TraditionalForm]}], "-", 
+       SuperscriptBox[
+        FormBox["p2",
+         TraditionalForm], "2"]}], ")"}]}]], "+", 
+   FractionBox[
+    RowBox[{"\[LeftDoubleBracketingBar]", 
+     FractionBox["1", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox["m", "2"], "-", 
+         SuperscriptBox[
+          FormBox["k",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox["m", "2"], "-", 
+         SuperscriptBox[
+          FormBox["k",
+           TraditionalForm], "2"], "-", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p2",
+            TraditionalForm]}]}], "-", 
+         SuperscriptBox[
+          FormBox["p2",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox[
+          FormBox["k",
+           TraditionalForm], "2"], "+", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "-", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p2",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"], "-", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["p1",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p2",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["p2",
+           TraditionalForm], "2"]}], ")"}]}]], 
+     "\[RightDoubleBracketingBar]"}], 
+    RowBox[{"2", " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"-", 
+        SuperscriptBox["m", "2"]}], "+", 
+       RowBox[{"4", " ", 
+        RowBox[{
+         FormBox["p1",
+          TraditionalForm], "\[CenterDot]", 
+         FormBox["p2",
+          TraditionalForm]}]}], "-", 
+       RowBox[{"2", " ", 
+        SuperscriptBox[
+         FormBox["p2",
+          TraditionalForm], "2"]}]}], ")"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        FormBox["p1",
+         TraditionalForm], "\[CenterDot]", 
+        FormBox["p2",
+         TraditionalForm]}], "-", 
+       SuperscriptBox[
+        FormBox["p2",
+         TraditionalForm], "2"]}], ")"}]}]], "-", 
+   FractionBox[
+    RowBox[{"\[LeftDoubleBracketingBar]", 
+     FractionBox["1", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox[
+          FormBox["k",
+           TraditionalForm], "2"], "+", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox["m", "2"], "-", 
+         SuperscriptBox[
+          FormBox["k",
+           TraditionalForm], "2"], "-", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p2",
+            TraditionalForm]}]}], "-", 
+         SuperscriptBox[
+          FormBox["p2",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox[
+          FormBox["k",
+           TraditionalForm], "2"], "+", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "-", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p2",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"], "-", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["p1",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p2",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["p2",
+           TraditionalForm], "2"]}], ")"}]}]], 
+     "\[RightDoubleBracketingBar]"}], 
+    RowBox[{"2", " ", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["m", "2"], "-", 
+       RowBox[{"2", " ", 
+        SuperscriptBox[
+         FormBox["p2",
+          TraditionalForm], "2"]}]}], ")"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox[
+        FormBox["p2",
+         TraditionalForm], "2"], "-", 
+       RowBox[{
+        FormBox["p1",
+         TraditionalForm], "\[CenterDot]", 
+        FormBox["p2",
+         TraditionalForm]}]}], ")"}]}]], "+", 
+   FractionBox[
+    RowBox[{"\[LeftDoubleBracketingBar]", 
+     FractionBox["1", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox["m", "2"], "-", 
+         SuperscriptBox[
+          FormBox["k",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox[
+          FormBox["k",
+           TraditionalForm], "2"], "+", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox[
+          FormBox["k",
+           TraditionalForm], "2"], "+", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "-", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p2",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"], "-", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["p1",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p2",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["p2",
+           TraditionalForm], "2"]}], ")"}]}]], 
+     "\[RightDoubleBracketingBar]"}], 
+    RowBox[{"2", " ", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["m", "2"], "-", 
+       RowBox[{"2", " ", 
+        SuperscriptBox[
+         FormBox["p2",
+          TraditionalForm], "2"]}]}], ")"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox[
+        FormBox["p2",
+         TraditionalForm], "2"], "-", 
+       RowBox[{
+        FormBox["p1",
+         TraditionalForm], "\[CenterDot]", 
+        FormBox["p2",
+         TraditionalForm]}]}], ")"}]}]], "-", 
+   FractionBox[
+    RowBox[{"4", " ", 
+     RowBox[{"\[LeftDoubleBracketingBar]", 
+      FractionBox["1", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          SuperscriptBox["m", "2"], "-", 
+          SuperscriptBox[
+           FormBox["k",
+            TraditionalForm], "2"], "-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p2",
+             TraditionalForm]}]}], "-", 
+          SuperscriptBox[
+           FormBox["p2",
+            TraditionalForm], "2"]}], ")"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          SuperscriptBox["m", "2"], "-", 
+          SuperscriptBox[
+           FormBox["k",
+            TraditionalForm], "2"], "-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p1",
+             TraditionalForm]}]}], "-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p2",
+             TraditionalForm]}]}], "-", 
+          SuperscriptBox[
+           FormBox["p1",
+            TraditionalForm], "2"], "-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["p1",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p2",
+             TraditionalForm]}]}], "-", 
+          SuperscriptBox[
+           FormBox["p2",
+            TraditionalForm], "2"]}], ")"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          SuperscriptBox[
+           FormBox["k",
+            TraditionalForm], "2"], "+", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p1",
+             TraditionalForm]}]}], "-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p2",
+             TraditionalForm]}]}], "+", 
+          SuperscriptBox[
+           FormBox["p1",
+            TraditionalForm], "2"], "-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["p1",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p2",
+             TraditionalForm]}]}], "+", 
+          SuperscriptBox[
+           FormBox["p2",
+            TraditionalForm], "2"]}], ")"}]}]], 
+      "\[RightDoubleBracketingBar]"}]}], 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["m", "2"], "-", 
+       RowBox[{"2", " ", 
+        SuperscriptBox[
+         FormBox["p2",
+          TraditionalForm], "2"]}]}], ")"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["m", "2"], "-", 
+       RowBox[{"4", " ", 
+        RowBox[{
+         FormBox["p1",
+          TraditionalForm], "\[CenterDot]", 
+         FormBox["p2",
+          TraditionalForm]}]}], "+", 
+       RowBox[{"2", " ", 
+        SuperscriptBox[
+         FormBox["p2",
+          TraditionalForm], "2"]}]}], ")"}]}]], "+", 
+   FractionBox[
+    RowBox[{"4", " ", 
+     RowBox[{"\[LeftDoubleBracketingBar]", 
+      FractionBox["1", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          SuperscriptBox["m", "2"], "-", 
+          SuperscriptBox[
+           FormBox["k",
+            TraditionalForm], "2"]}], ")"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          SuperscriptBox["m", "2"], "-", 
+          SuperscriptBox[
+           FormBox["k",
+            TraditionalForm], "2"], "-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p1",
+             TraditionalForm]}]}], "-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p2",
+             TraditionalForm]}]}], "-", 
+          SuperscriptBox[
+           FormBox["p1",
+            TraditionalForm], "2"], "-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["p1",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p2",
+             TraditionalForm]}]}], "-", 
+          SuperscriptBox[
+           FormBox["p2",
+            TraditionalForm], "2"]}], ")"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          SuperscriptBox[
+           FormBox["k",
+            TraditionalForm], "2"], "+", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p1",
+             TraditionalForm]}]}], "-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p2",
+             TraditionalForm]}]}], "+", 
+          SuperscriptBox[
+           FormBox["p1",
+            TraditionalForm], "2"], "-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["p1",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p2",
+             TraditionalForm]}]}], "+", 
+          SuperscriptBox[
+           FormBox["p2",
+            TraditionalForm], "2"]}], ")"}]}]], 
+      "\[RightDoubleBracketingBar]"}]}], 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["m", "2"], "-", 
+       RowBox[{"2", " ", 
+        SuperscriptBox[
+         FormBox["p2",
+          TraditionalForm], "2"]}]}], ")"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["m", "2"], "-", 
+       RowBox[{"4", " ", 
+        RowBox[{
+         FormBox["p1",
+          TraditionalForm], "\[CenterDot]", 
+         FormBox["p2",
+          TraditionalForm]}]}], "+", 
+       RowBox[{"2", " ", 
+        SuperscriptBox[
+         FormBox["p2",
+          TraditionalForm], "2"]}]}], ")"}]}]]}], TraditionalForm]], "Output",
+ CellChangeTimes->{{3.649300059473194*^9, 3.6493000863511324`*^9}, {
+   3.6493001329936376`*^9, 3.649300166126954*^9}, 3.6493004494522305`*^9, 
+   3.6493008227789936`*^9, 3.649300909875432*^9, {3.649301008115918*^9, 
+   3.649301017766863*^9}, 3.649302018249496*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Keep ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["k", "2"], TraditionalForm]]],
+ " Positive"
+}], "Subsection",
+ CellChangeTimes->{{3.647659716648718*^9, 3.647659756480595*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"SetOptions", "[", 
+  RowBox[{"ApartVars", ",", 
+   RowBox[{"SignVars", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"bas", "[", 
+      RowBox[{"[", "1", "]"}], "]"}], "}"}]}], ",", 
+   RowBox[{"VarsSign", "\[Rule]", "1"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.6476594646227713`*^9, 3.64765947481604*^9}, {
+  3.647659671700074*^9, 3.647659685217023*^9}, {3.647659766170456*^9, 
+  3.647659771681891*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"SignVars", "\[Rule]", 
+     RowBox[{"{", 
+      SuperscriptBox[
+       FormBox["k",
+        TraditionalForm], "2"], "}"}]}], ",", 
+    RowBox[{"VarsSign", "\[Rule]", "1"}]}], "}"}], TraditionalForm]], "Output",
+ CellChangeTimes->{
+  3.6476594752548437`*^9, 3.647659695483877*^9, 3.647659772438875*^9, 
+   3.6476598891326113`*^9, 3.647660646051223*^9, 3.647673813091703*^9, 
+   3.649300462274937*^9, 3.649300822810193*^9, 3.6493009099066305`*^9, {
+   3.649301009721918*^9, 3.64930101781857*^9}, 3.6493020183057613`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ApartAll", "[", 
+  RowBox[{"exp2", ",", "bas"}], "]"}]], "Input",
+ CellChangeTimes->{{3.647659477279261*^9, 3.647659482328412*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{"-", 
+    FractionBox[
+     RowBox[{"\[LeftDoubleBracketingBar]", 
+      FractionBox["1", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          SuperscriptBox[
+           FormBox["k",
+            TraditionalForm], "2"], "-", 
+          SuperscriptBox["m", "2"]}], ")"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", 
+           SuperscriptBox["m", "2"]}], "+", 
+          SuperscriptBox[
+           FormBox["k",
+            TraditionalForm], "2"], "+", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p2",
+             TraditionalForm]}]}], "+", 
+          SuperscriptBox[
+           FormBox["p2",
+            TraditionalForm], "2"]}], ")"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          SuperscriptBox[
+           FormBox["k",
+            TraditionalForm], "2"], "+", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p1",
+             TraditionalForm]}]}], "-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p2",
+             TraditionalForm]}]}], "+", 
+          SuperscriptBox[
+           FormBox["p1",
+            TraditionalForm], "2"], "-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["p1",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p2",
+             TraditionalForm]}]}], "+", 
+          SuperscriptBox[
+           FormBox["p2",
+            TraditionalForm], "2"]}], ")"}]}]], 
+      "\[RightDoubleBracketingBar]"}], 
+     RowBox[{"2", " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         FormBox["p1",
+          TraditionalForm], "\[CenterDot]", 
+         FormBox["p2",
+          TraditionalForm]}], "-", 
+        SuperscriptBox[
+         FormBox["p2",
+          TraditionalForm], "2"]}], ")"}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        SuperscriptBox["m", "2"], "-", 
+        RowBox[{"4", " ", 
+         RowBox[{
+          FormBox["p1",
+           TraditionalForm], "\[CenterDot]", 
+          FormBox["p2",
+           TraditionalForm]}]}], "+", 
+        RowBox[{"2", " ", 
+         SuperscriptBox[
+          FormBox["p2",
+           TraditionalForm], "2"]}]}], ")"}]}]]}], "-", 
+   FractionBox[
+    RowBox[{"\[LeftDoubleBracketingBar]", 
+     FractionBox["1", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox[
+          FormBox["k",
+           TraditionalForm], "2"], "-", 
+         SuperscriptBox["m", "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox[
+          FormBox["k",
+           TraditionalForm], "2"], "+", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          SuperscriptBox["m", "2"]}], "+", 
+         SuperscriptBox[
+          FormBox["k",
+           TraditionalForm], "2"], "+", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "+", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p2",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"], "+", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["p1",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p2",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["p2",
+           TraditionalForm], "2"]}], ")"}]}]], 
+     "\[RightDoubleBracketingBar]"}], 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["m", "2"], "-", 
+       RowBox[{"2", " ", 
+        RowBox[{
+         FormBox["p1",
+          TraditionalForm], "\[CenterDot]", 
+         FormBox["p2",
+          TraditionalForm]}]}]}], ")"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["m", "2"], "-", 
+       RowBox[{"2", " ", 
+        SuperscriptBox[
+         FormBox["p2",
+          TraditionalForm], "2"]}]}], ")"}]}]], "+", 
+   FractionBox[
+    RowBox[{"\[LeftDoubleBracketingBar]", 
+     FractionBox["1", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox[
+          FormBox["k",
+           TraditionalForm], "2"], "+", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          SuperscriptBox["m", "2"]}], "+", 
+         SuperscriptBox[
+          FormBox["k",
+           TraditionalForm], "2"], "+", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p2",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["p2",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          SuperscriptBox["m", "2"]}], "+", 
+         SuperscriptBox[
+          FormBox["k",
+           TraditionalForm], "2"], "+", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "+", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p2",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"], "+", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["p1",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p2",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["p2",
+           TraditionalForm], "2"]}], ")"}]}]], 
+     "\[RightDoubleBracketingBar]"}], 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["m", "2"], "-", 
+       RowBox[{"2", " ", 
+        RowBox[{
+         FormBox["p1",
+          TraditionalForm], "\[CenterDot]", 
+         FormBox["p2",
+          TraditionalForm]}]}]}], ")"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["m", "2"], "-", 
+       RowBox[{"2", " ", 
+        SuperscriptBox[
+         FormBox["p2",
+          TraditionalForm], "2"]}]}], ")"}]}]], "+", 
+   FractionBox[
+    RowBox[{"\[LeftDoubleBracketingBar]", 
+     FractionBox["1", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox[
+          FormBox["k",
+           TraditionalForm], "2"], "-", 
+         SuperscriptBox["m", "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox[
+          FormBox["k",
+           TraditionalForm], "2"], "+", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          SuperscriptBox["m", "2"]}], "+", 
+         SuperscriptBox[
+          FormBox["k",
+           TraditionalForm], "2"], "+", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p2",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["p2",
+           TraditionalForm], "2"]}], ")"}]}]], 
+     "\[RightDoubleBracketingBar]"}], 
+    RowBox[{"2", " ", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["m", "2"], "-", 
+       RowBox[{"2", " ", 
+        RowBox[{
+         FormBox["p1",
+          TraditionalForm], "\[CenterDot]", 
+         FormBox["p2",
+          TraditionalForm]}]}]}], ")"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        FormBox["p1",
+         TraditionalForm], "\[CenterDot]", 
+        FormBox["p2",
+         TraditionalForm]}], "-", 
+       SuperscriptBox[
+        FormBox["p2",
+         TraditionalForm], "2"]}], ")"}]}]], "-", 
+   FractionBox[
+    RowBox[{"\[LeftDoubleBracketingBar]", 
+     FractionBox["1", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox[
+          FormBox["k",
+           TraditionalForm], "2"], "-", 
+         SuperscriptBox["m", "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox[
+          FormBox["k",
+           TraditionalForm], "2"], "+", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox[
+          FormBox["k",
+           TraditionalForm], "2"], "+", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "-", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p2",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"], "-", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["p1",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p2",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["p2",
+           TraditionalForm], "2"]}], ")"}]}]], 
+     "\[RightDoubleBracketingBar]"}], 
+    RowBox[{"2", " ", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["m", "2"], "-", 
+       RowBox[{"2", " ", 
+        SuperscriptBox[
+         FormBox["p2",
+          TraditionalForm], "2"]}]}], ")"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox[
+        FormBox["p2",
+         TraditionalForm], "2"], "-", 
+       RowBox[{
+        FormBox["p1",
+         TraditionalForm], "\[CenterDot]", 
+        FormBox["p2",
+         TraditionalForm]}]}], ")"}]}]], "+", 
+   FractionBox[
+    RowBox[{"\[LeftDoubleBracketingBar]", 
+     FractionBox["1", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox[
+          FormBox["k",
+           TraditionalForm], "2"], "+", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          SuperscriptBox["m", "2"]}], "+", 
+         SuperscriptBox[
+          FormBox["k",
+           TraditionalForm], "2"], "+", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p2",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["p2",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox[
+          FormBox["k",
+           TraditionalForm], "2"], "+", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "-", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p2",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"], "-", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["p1",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p2",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["p2",
+           TraditionalForm], "2"]}], ")"}]}]], 
+     "\[RightDoubleBracketingBar]"}], 
+    RowBox[{"2", " ", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["m", "2"], "-", 
+       RowBox[{"2", " ", 
+        SuperscriptBox[
+         FormBox["p2",
+          TraditionalForm], "2"]}]}], ")"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox[
+        FormBox["p2",
+         TraditionalForm], "2"], "-", 
+       RowBox[{
+        FormBox["p1",
+         TraditionalForm], "\[CenterDot]", 
+        FormBox["p2",
+         TraditionalForm]}]}], ")"}]}]], "+", 
+   FractionBox[
+    RowBox[{"\[LeftDoubleBracketingBar]", 
+     FractionBox["1", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox[
+          FormBox["k",
+           TraditionalForm], "2"], "-", 
+         SuperscriptBox["m", "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          SuperscriptBox["m", "2"]}], "+", 
+         SuperscriptBox[
+          FormBox["k",
+           TraditionalForm], "2"], "+", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p2",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["p2",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          SuperscriptBox["m", "2"]}], "+", 
+         SuperscriptBox[
+          FormBox["k",
+           TraditionalForm], "2"], "+", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "+", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p2",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"], "+", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["p1",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p2",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["p2",
+           TraditionalForm], "2"]}], ")"}]}]], 
+     "\[RightDoubleBracketingBar]"}], 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["m", "2"], "-", 
+       RowBox[{"2", " ", 
+        RowBox[{
+         FormBox["p1",
+          TraditionalForm], "\[CenterDot]", 
+         FormBox["p2",
+          TraditionalForm]}]}]}], ")"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["m", "2"], "-", 
+       RowBox[{"4", " ", 
+        RowBox[{
+         FormBox["p1",
+          TraditionalForm], "\[CenterDot]", 
+         FormBox["p2",
+          TraditionalForm]}]}], "+", 
+       RowBox[{"2", " ", 
+        SuperscriptBox[
+         FormBox["p2",
+          TraditionalForm], "2"]}]}], ")"}]}]], "+", 
+   FractionBox[
+    RowBox[{"4", " ", 
+     RowBox[{"\[LeftDoubleBracketingBar]", 
+      FractionBox["1", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          SuperscriptBox[
+           FormBox["k",
+            TraditionalForm], "2"], "-", 
+          SuperscriptBox["m", "2"]}], ")"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          SuperscriptBox[
+           FormBox["k",
+            TraditionalForm], "2"], "+", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p1",
+             TraditionalForm]}]}], "-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p2",
+             TraditionalForm]}]}], "+", 
+          SuperscriptBox[
+           FormBox["p1",
+            TraditionalForm], "2"], "-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["p1",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p2",
+             TraditionalForm]}]}], "+", 
+          SuperscriptBox[
+           FormBox["p2",
+            TraditionalForm], "2"]}], ")"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", 
+           SuperscriptBox["m", "2"]}], "+", 
+          SuperscriptBox[
+           FormBox["k",
+            TraditionalForm], "2"], "+", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p1",
+             TraditionalForm]}]}], "+", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p2",
+             TraditionalForm]}]}], "+", 
+          SuperscriptBox[
+           FormBox["p1",
+            TraditionalForm], "2"], "+", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["p1",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p2",
+             TraditionalForm]}]}], "+", 
+          SuperscriptBox[
+           FormBox["p2",
+            TraditionalForm], "2"]}], ")"}]}]], 
+      "\[RightDoubleBracketingBar]"}]}], 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["m", "2"], "-", 
+       RowBox[{"2", " ", 
+        SuperscriptBox[
+         FormBox["p2",
+          TraditionalForm], "2"]}]}], ")"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["m", "2"], "-", 
+       RowBox[{"4", " ", 
+        RowBox[{
+         FormBox["p1",
+          TraditionalForm], "\[CenterDot]", 
+         FormBox["p2",
+          TraditionalForm]}]}], "+", 
+       RowBox[{"2", " ", 
+        SuperscriptBox[
+         FormBox["p2",
+          TraditionalForm], "2"]}]}], ")"}]}]], "-", 
+   FractionBox[
+    RowBox[{"4", " ", 
+     RowBox[{"\[LeftDoubleBracketingBar]", 
+      FractionBox["1", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", 
+           SuperscriptBox["m", "2"]}], "+", 
+          SuperscriptBox[
+           FormBox["k",
+            TraditionalForm], "2"], "+", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p2",
+             TraditionalForm]}]}], "+", 
+          SuperscriptBox[
+           FormBox["p2",
+            TraditionalForm], "2"]}], ")"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          SuperscriptBox[
+           FormBox["k",
+            TraditionalForm], "2"], "+", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p1",
+             TraditionalForm]}]}], "-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p2",
+             TraditionalForm]}]}], "+", 
+          SuperscriptBox[
+           FormBox["p1",
+            TraditionalForm], "2"], "-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["p1",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p2",
+             TraditionalForm]}]}], "+", 
+          SuperscriptBox[
+           FormBox["p2",
+            TraditionalForm], "2"]}], ")"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", 
+           SuperscriptBox["m", "2"]}], "+", 
+          SuperscriptBox[
+           FormBox["k",
+            TraditionalForm], "2"], "+", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p1",
+             TraditionalForm]}]}], "+", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p2",
+             TraditionalForm]}]}], "+", 
+          SuperscriptBox[
+           FormBox["p1",
+            TraditionalForm], "2"], "+", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["p1",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p2",
+             TraditionalForm]}]}], "+", 
+          SuperscriptBox[
+           FormBox["p2",
+            TraditionalForm], "2"]}], ")"}]}]], 
+      "\[RightDoubleBracketingBar]"}]}], 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["m", "2"], "-", 
+       RowBox[{"2", " ", 
+        SuperscriptBox[
+         FormBox["p2",
+          TraditionalForm], "2"]}]}], ")"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["m", "2"], "-", 
+       RowBox[{"4", " ", 
+        RowBox[{
+         FormBox["p1",
+          TraditionalForm], "\[CenterDot]", 
+         FormBox["p2",
+          TraditionalForm]}]}], "+", 
+       RowBox[{"2", " ", 
+        SuperscriptBox[
+         FormBox["p2",
+          TraditionalForm], "2"]}]}], ")"}]}]]}], TraditionalForm]], "Output",
+ CellChangeTimes->{
+  3.647659483088686*^9, 3.647659695528474*^9, 3.647659773606024*^9, 
+   3.6476598899851294`*^9, 3.647660646160945*^9, 3.647673813172641*^9, 
+   3.649300463226506*^9, 3.649300822872591*^9, 3.649300910000227*^9, {
+   3.6493010102683687`*^9, 3.649301017866426*^9}, 3.649302018353833*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Keep ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["k", "2"], TraditionalForm]]],
+ " Negative"
+}], "Subsection",
+ CellChangeTimes->{{3.647659716648718*^9, 3.647659756480595*^9}, {
+  3.647660604568021*^9, 3.647660608014542*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"SetOptions", "[", 
+  RowBox[{"ApartVars", ",", 
+   RowBox[{"SignVars", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"bas", "[", 
+      RowBox[{"[", "1", "]"}], "]"}], "}"}]}], ",", 
+   RowBox[{"VarsSign", "\[Rule]", 
+    RowBox[{"-", "1"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{3.647659849678842*^9}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"SignVars", "\[Rule]", 
+     RowBox[{"{", 
+      SuperscriptBox[
+       FormBox["k",
+        TraditionalForm], "2"], "}"}]}], ",", 
+    RowBox[{"VarsSign", "\[Rule]", 
+     RowBox[{"-", "1"}]}]}], "}"}], TraditionalForm]], "Output",
+ CellChangeTimes->{
+  3.647659850292838*^9, 3.647659893758238*^9, 3.647660646200076*^9, 
+   3.647673813201099*^9, 3.649300467422799*^9, 3.6493008229037905`*^9, 
+   3.649300910031426*^9, {3.6493010124469557`*^9, 3.649301017918933*^9}, 
+   3.6493020184021883`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ApartAll", "[", 
+  RowBox[{"exp2", ",", "bas"}], "]"}]], "Input"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{"-", 
+    FractionBox[
+     RowBox[{"\[LeftDoubleBracketingBar]", 
+      FractionBox["1", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", 
+           SuperscriptBox[
+            FormBox["k",
+             TraditionalForm], "2"]}], "-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p1",
+             TraditionalForm]}]}], "-", 
+          SuperscriptBox[
+           FormBox["p1",
+            TraditionalForm], "2"]}], ")"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          SuperscriptBox["m", "2"], "-", 
+          SuperscriptBox[
+           FormBox["k",
+            TraditionalForm], "2"], "-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p2",
+             TraditionalForm]}]}], "-", 
+          SuperscriptBox[
+           FormBox["p2",
+            TraditionalForm], "2"]}], ")"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          SuperscriptBox["m", "2"], "-", 
+          SuperscriptBox[
+           FormBox["k",
+            TraditionalForm], "2"], "-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p1",
+             TraditionalForm]}]}], "-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p2",
+             TraditionalForm]}]}], "-", 
+          SuperscriptBox[
+           FormBox["p1",
+            TraditionalForm], "2"], "-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["p1",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p2",
+             TraditionalForm]}]}], "-", 
+          SuperscriptBox[
+           FormBox["p2",
+            TraditionalForm], "2"]}], ")"}]}]], 
+      "\[RightDoubleBracketingBar]"}], 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        SuperscriptBox["m", "2"], "-", 
+        RowBox[{"2", " ", 
+         RowBox[{
+          FormBox["p1",
+           TraditionalForm], "\[CenterDot]", 
+          FormBox["p2",
+           TraditionalForm]}]}]}], ")"}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        SuperscriptBox["m", "2"], "-", 
+        RowBox[{"2", " ", 
+         SuperscriptBox[
+          FormBox["p2",
+           TraditionalForm], "2"]}]}], ")"}]}]]}], "+", 
+   FractionBox[
+    RowBox[{"\[LeftDoubleBracketingBar]", 
+     FractionBox["1", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox["m", "2"], "-", 
+         SuperscriptBox[
+          FormBox["k",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          SuperscriptBox[
+           FormBox["k",
+            TraditionalForm], "2"]}], "-", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "-", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox["m", "2"], "-", 
+         SuperscriptBox[
+          FormBox["k",
+           TraditionalForm], "2"], "-", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "-", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p2",
+            TraditionalForm]}]}], "-", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"], "-", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["p1",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p2",
+            TraditionalForm]}]}], "-", 
+         SuperscriptBox[
+          FormBox["p2",
+           TraditionalForm], "2"]}], ")"}]}]], 
+     "\[RightDoubleBracketingBar]"}], 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["m", "2"], "-", 
+       RowBox[{"2", " ", 
+        RowBox[{
+         FormBox["p1",
+          TraditionalForm], "\[CenterDot]", 
+         FormBox["p2",
+          TraditionalForm]}]}]}], ")"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["m", "2"], "-", 
+       RowBox[{"2", " ", 
+        SuperscriptBox[
+         FormBox["p2",
+          TraditionalForm], "2"]}]}], ")"}]}]], "-", 
+   FractionBox[
+    RowBox[{"\[LeftDoubleBracketingBar]", 
+     FractionBox["1", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox["m", "2"], "-", 
+         SuperscriptBox[
+          FormBox["k",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          SuperscriptBox[
+           FormBox["k",
+            TraditionalForm], "2"]}], "-", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "-", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox["m", "2"], "-", 
+         SuperscriptBox[
+          FormBox["k",
+           TraditionalForm], "2"], "-", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p2",
+            TraditionalForm]}]}], "-", 
+         SuperscriptBox[
+          FormBox["p2",
+           TraditionalForm], "2"]}], ")"}]}]], 
+     "\[RightDoubleBracketingBar]"}], 
+    RowBox[{"2", " ", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["m", "2"], "-", 
+       RowBox[{"2", " ", 
+        RowBox[{
+         FormBox["p1",
+          TraditionalForm], "\[CenterDot]", 
+         FormBox["p2",
+          TraditionalForm]}]}]}], ")"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        FormBox["p1",
+         TraditionalForm], "\[CenterDot]", 
+        FormBox["p2",
+         TraditionalForm]}], "-", 
+       SuperscriptBox[
+        FormBox["p2",
+         TraditionalForm], "2"]}], ")"}]}]], "-", 
+   FractionBox[
+    RowBox[{"\[LeftDoubleBracketingBar]", 
+     FractionBox["1", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox["m", "2"], "-", 
+         SuperscriptBox[
+          FormBox["k",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox["m", "2"], "-", 
+         SuperscriptBox[
+          FormBox["k",
+           TraditionalForm], "2"], "-", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p2",
+            TraditionalForm]}]}], "-", 
+         SuperscriptBox[
+          FormBox["p2",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          SuperscriptBox[
+           FormBox["k",
+            TraditionalForm], "2"]}], "-", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "+", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p2",
+            TraditionalForm]}]}], "-", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"], "+", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["p1",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p2",
+            TraditionalForm]}]}], "-", 
+         SuperscriptBox[
+          FormBox["p2",
+           TraditionalForm], "2"]}], ")"}]}]], 
+     "\[RightDoubleBracketingBar]"}], 
+    RowBox[{"2", " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"-", 
+        SuperscriptBox["m", "2"]}], "+", 
+       RowBox[{"4", " ", 
+        RowBox[{
+         FormBox["p1",
+          TraditionalForm], "\[CenterDot]", 
+         FormBox["p2",
+          TraditionalForm]}]}], "-", 
+       RowBox[{"2", " ", 
+        SuperscriptBox[
+         FormBox["p2",
+          TraditionalForm], "2"]}]}], ")"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        FormBox["p1",
+         TraditionalForm], "\[CenterDot]", 
+        FormBox["p2",
+         TraditionalForm]}], "-", 
+       SuperscriptBox[
+        FormBox["p2",
+         TraditionalForm], "2"]}], ")"}]}]], "-", 
+   FractionBox[
+    RowBox[{"\[LeftDoubleBracketingBar]", 
+     FractionBox["1", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          SuperscriptBox[
+           FormBox["k",
+            TraditionalForm], "2"]}], "-", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "-", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox["m", "2"], "-", 
+         SuperscriptBox[
+          FormBox["k",
+           TraditionalForm], "2"], "-", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p2",
+            TraditionalForm]}]}], "-", 
+         SuperscriptBox[
+          FormBox["p2",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          SuperscriptBox[
+           FormBox["k",
+            TraditionalForm], "2"]}], "-", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "+", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p2",
+            TraditionalForm]}]}], "-", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"], "+", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["p1",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p2",
+            TraditionalForm]}]}], "-", 
+         SuperscriptBox[
+          FormBox["p2",
+           TraditionalForm], "2"]}], ")"}]}]], 
+     "\[RightDoubleBracketingBar]"}], 
+    RowBox[{"2", " ", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["m", "2"], "-", 
+       RowBox[{"2", " ", 
+        SuperscriptBox[
+         FormBox["p2",
+          TraditionalForm], "2"]}]}], ")"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox[
+        FormBox["p2",
+         TraditionalForm], "2"], "-", 
+       RowBox[{
+        FormBox["p1",
+         TraditionalForm], "\[CenterDot]", 
+        FormBox["p2",
+         TraditionalForm]}]}], ")"}]}]], "+", 
+   FractionBox[
+    RowBox[{"\[LeftDoubleBracketingBar]", 
+     FractionBox["1", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox["m", "2"], "-", 
+         SuperscriptBox[
+          FormBox["k",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          SuperscriptBox[
+           FormBox["k",
+            TraditionalForm], "2"]}], "-", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "-", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          SuperscriptBox[
+           FormBox["k",
+            TraditionalForm], "2"]}], "-", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "+", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p2",
+            TraditionalForm]}]}], "-", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"], "+", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["p1",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p2",
+            TraditionalForm]}]}], "-", 
+         SuperscriptBox[
+          FormBox["p2",
+           TraditionalForm], "2"]}], ")"}]}]], 
+     "\[RightDoubleBracketingBar]"}], 
+    RowBox[{"2", " ", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["m", "2"], "-", 
+       RowBox[{"2", " ", 
+        SuperscriptBox[
+         FormBox["p2",
+          TraditionalForm], "2"]}]}], ")"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox[
+        FormBox["p2",
+         TraditionalForm], "2"], "-", 
+       RowBox[{
+        FormBox["p1",
+         TraditionalForm], "\[CenterDot]", 
+        FormBox["p2",
+         TraditionalForm]}]}], ")"}]}]], "-", 
+   FractionBox[
+    RowBox[{"\[LeftDoubleBracketingBar]", 
+     FractionBox["1", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox["m", "2"], "-", 
+         SuperscriptBox[
+          FormBox["k",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox["m", "2"], "-", 
+         SuperscriptBox[
+          FormBox["k",
+           TraditionalForm], "2"], "-", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p2",
+            TraditionalForm]}]}], "-", 
+         SuperscriptBox[
+          FormBox["p2",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox["m", "2"], "-", 
+         SuperscriptBox[
+          FormBox["k",
+           TraditionalForm], "2"], "-", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "-", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p2",
+            TraditionalForm]}]}], "-", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"], "-", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["p1",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p2",
+            TraditionalForm]}]}], "-", 
+         SuperscriptBox[
+          FormBox["p2",
+           TraditionalForm], "2"]}], ")"}]}]], 
+     "\[RightDoubleBracketingBar]"}], 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["m", "2"], "-", 
+       RowBox[{"2", " ", 
+        RowBox[{
+         FormBox["p1",
+          TraditionalForm], "\[CenterDot]", 
+         FormBox["p2",
+          TraditionalForm]}]}]}], ")"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["m", "2"], "-", 
+       RowBox[{"4", " ", 
+        RowBox[{
+         FormBox["p1",
+          TraditionalForm], "\[CenterDot]", 
+         FormBox["p2",
+          TraditionalForm]}]}], "+", 
+       RowBox[{"2", " ", 
+        SuperscriptBox[
+         FormBox["p2",
+          TraditionalForm], "2"]}]}], ")"}]}]], "+", 
+   FractionBox[
+    RowBox[{"4", " ", 
+     RowBox[{"\[LeftDoubleBracketingBar]", 
+      FractionBox["1", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          SuperscriptBox["m", "2"], "-", 
+          SuperscriptBox[
+           FormBox["k",
+            TraditionalForm], "2"], "-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p2",
+             TraditionalForm]}]}], "-", 
+          SuperscriptBox[
+           FormBox["p2",
+            TraditionalForm], "2"]}], ")"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          SuperscriptBox["m", "2"], "-", 
+          SuperscriptBox[
+           FormBox["k",
+            TraditionalForm], "2"], "-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p1",
+             TraditionalForm]}]}], "-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p2",
+             TraditionalForm]}]}], "-", 
+          SuperscriptBox[
+           FormBox["p1",
+            TraditionalForm], "2"], "-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["p1",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p2",
+             TraditionalForm]}]}], "-", 
+          SuperscriptBox[
+           FormBox["p2",
+            TraditionalForm], "2"]}], ")"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", 
+           SuperscriptBox[
+            FormBox["k",
+             TraditionalForm], "2"]}], "-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p1",
+             TraditionalForm]}]}], "+", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p2",
+             TraditionalForm]}]}], "-", 
+          SuperscriptBox[
+           FormBox["p1",
+            TraditionalForm], "2"], "+", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["p1",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p2",
+             TraditionalForm]}]}], "-", 
+          SuperscriptBox[
+           FormBox["p2",
+            TraditionalForm], "2"]}], ")"}]}]], 
+      "\[RightDoubleBracketingBar]"}]}], 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["m", "2"], "-", 
+       RowBox[{"2", " ", 
+        SuperscriptBox[
+         FormBox["p2",
+          TraditionalForm], "2"]}]}], ")"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["m", "2"], "-", 
+       RowBox[{"4", " ", 
+        RowBox[{
+         FormBox["p1",
+          TraditionalForm], "\[CenterDot]", 
+         FormBox["p2",
+          TraditionalForm]}]}], "+", 
+       RowBox[{"2", " ", 
+        SuperscriptBox[
+         FormBox["p2",
+          TraditionalForm], "2"]}]}], ")"}]}]], "-", 
+   FractionBox[
+    RowBox[{"4", " ", 
+     RowBox[{"\[LeftDoubleBracketingBar]", 
+      FractionBox["1", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          SuperscriptBox["m", "2"], "-", 
+          SuperscriptBox[
+           FormBox["k",
+            TraditionalForm], "2"]}], ")"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          SuperscriptBox["m", "2"], "-", 
+          SuperscriptBox[
+           FormBox["k",
+            TraditionalForm], "2"], "-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p1",
+             TraditionalForm]}]}], "-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p2",
+             TraditionalForm]}]}], "-", 
+          SuperscriptBox[
+           FormBox["p1",
+            TraditionalForm], "2"], "-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["p1",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p2",
+             TraditionalForm]}]}], "-", 
+          SuperscriptBox[
+           FormBox["p2",
+            TraditionalForm], "2"]}], ")"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", 
+           SuperscriptBox[
+            FormBox["k",
+             TraditionalForm], "2"]}], "-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p1",
+             TraditionalForm]}]}], "+", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p2",
+             TraditionalForm]}]}], "-", 
+          SuperscriptBox[
+           FormBox["p1",
+            TraditionalForm], "2"], "+", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["p1",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p2",
+             TraditionalForm]}]}], "-", 
+          SuperscriptBox[
+           FormBox["p2",
+            TraditionalForm], "2"]}], ")"}]}]], 
+      "\[RightDoubleBracketingBar]"}]}], 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["m", "2"], "-", 
+       RowBox[{"2", " ", 
+        SuperscriptBox[
+         FormBox["p2",
+          TraditionalForm], "2"]}]}], ")"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       SuperscriptBox["m", "2"], "-", 
+       RowBox[{"4", " ", 
+        RowBox[{
+         FormBox["p1",
+          TraditionalForm], "\[CenterDot]", 
+         FormBox["p2",
+          TraditionalForm]}]}], "+", 
+       RowBox[{"2", " ", 
+        SuperscriptBox[
+         FormBox["p2",
+          TraditionalForm], "2"]}]}], ")"}]}]]}], TraditionalForm]], "Output",
+ CellChangeTimes->{{3.647659520923382*^9, 3.6476595260125017`*^9}, 
+   3.6476596956234617`*^9, 3.64765985142211*^9, 3.647659894611847*^9, 
+   3.647660646275732*^9, 3.647673813312663*^9, 3.649300468358775*^9, 
+   3.6493008229505887`*^9, 3.6493009100938234`*^9, {3.6493010130805407`*^9, 
+   3.6493010179652643`*^9}, 3.649302018454401*^9}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Physical Examples - Two Loop", "Section",
+ CellChangeTimes->{{3.64765906488136*^9, 3.6476590682485247`*^9}, {
+  3.647660662721105*^9, 3.647660675559307*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"bas", "=", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"SPD", "[", "k1", "]"}], ",", 
+     RowBox[{"SPD", "[", "k2", "]"}], ",", 
+     RowBox[{"SPD", "[", 
+      RowBox[{"k1", ",", "k2"}], "]"}], ",", 
+     RowBox[{"SPD", "[", 
+      RowBox[{"k1", ",", "p1"}], "]"}], ",", 
+     RowBox[{"SPD", "[", 
+      RowBox[{"k2", ",", "p1"}], "]"}]}], "}"}], "//", "FCI"}]}]], "Input",
+ CellChangeTimes->{{3.647659075577931*^9, 3.647659096480947*^9}, {
+  3.6476592199756393`*^9, 3.64765924108881*^9}, {3.647659600671789*^9, 
+  3.647659608055295*^9}, {3.64766068456118*^9, 3.647660700839347*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"{", 
+   RowBox[{
+    SuperscriptBox[
+     FormBox["k1",
+      TraditionalForm], "2"], ",", 
+    SuperscriptBox[
+     FormBox["k2",
+      TraditionalForm], "2"], ",", 
+    RowBox[{
+     FormBox["k1",
+      TraditionalForm], "\[CenterDot]", 
+     FormBox["k2",
+      TraditionalForm]}], ",", 
+    RowBox[{
+     FormBox["k1",
+      TraditionalForm], "\[CenterDot]", 
+     FormBox["p1",
+      TraditionalForm]}], ",", 
+    RowBox[{
+     FormBox["k2",
+      TraditionalForm], "\[CenterDot]", 
+     FormBox["p1",
+      TraditionalForm]}]}], "}"}], TraditionalForm]], "Output",
+ CellChangeTimes->{
+  3.647659097053619*^9, {3.6476592246503*^9, 3.647659241609795*^9}, 
+   3.647659292077401*^9, 3.647659342414413*^9, {3.647659447676777*^9, 
+   3.647659461717896*^9}, {3.647659605241255*^9, 3.6476596086259336`*^9}, 
+   3.6476596953546743`*^9, 3.647660645883596*^9, 3.6476607015297127`*^9, 
+   3.6476738133927*^9, 3.6491545645499783`*^9, 3.6493004754565926`*^9, 
+   3.6493008229817877`*^9, 3.649300910140622*^9, 3.64930102092516*^9, 
+   3.6493020185031967`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"exp2", "=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      FractionBox["1", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"SPD", "[", "k1", "]"}], "-", 
+         SuperscriptBox["m", "2"]}], ")"}]], 
+      FractionBox["1", 
+       RowBox[{
+        RowBox[{"SPD", "[", "k2", "]"}], "-", 
+        SuperscriptBox["m", "2"]}]], 
+      FractionBox["1", 
+       RowBox[{
+        RowBox[{"SPD", "[", 
+         RowBox[{"k1", "+", "p1"}], "]"}], "-", 
+        SuperscriptBox["m", "2"]}]], 
+      FractionBox["1", 
+       RowBox[{
+        RowBox[{"SPD", "[", 
+         RowBox[{"k2", "+", "p1"}], "]"}], "-", 
+        SuperscriptBox["m", "2"]}]], 
+      FractionBox["1", 
+       RowBox[{"SPD", "[", 
+        RowBox[{"k1", "+", "k2"}], "]"}]], 
+      FractionBox["1", 
+       RowBox[{"SPD", "[", 
+        RowBox[{"k1", "+", "k2", "+", "p1"}], "]"}]]}], "//", "FCI"}], "//", 
+    "MomentumExpand"}], "//", "ScalarProductExpand"}]}]], "Input",
+ CellChangeTimes->{{3.647659099386245*^9, 3.6476591538481693`*^9}, {
+  3.647659185224002*^9, 3.6476592120791492`*^9}, {3.647659869228641*^9, 
+  3.64765987818576*^9}, {3.647660705417556*^9, 3.647660799114078*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  FractionBox["1", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      SuperscriptBox[
+       FormBox["k1",
+        TraditionalForm], "2"], "-", 
+      SuperscriptBox["m", "2"]}], ")"}], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      SuperscriptBox[
+       FormBox["k2",
+        TraditionalForm], "2"], "-", 
+      SuperscriptBox["m", "2"]}], ")"}], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"2", " ", 
+       RowBox[{
+        FormBox["k1",
+         TraditionalForm], "\[CenterDot]", 
+        FormBox["k2",
+         TraditionalForm]}]}], "+", 
+      SuperscriptBox[
+       FormBox["k1",
+        TraditionalForm], "2"], "+", 
+      SuperscriptBox[
+       FormBox["k2",
+        TraditionalForm], "2"]}], ")"}], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"2", " ", 
+       RowBox[{
+        FormBox["k1",
+         TraditionalForm], "\[CenterDot]", 
+        FormBox["k2",
+         TraditionalForm]}]}], "+", 
+      RowBox[{"2", " ", 
+       RowBox[{
+        FormBox["k1",
+         TraditionalForm], "\[CenterDot]", 
+        FormBox["p1",
+         TraditionalForm]}]}], "+", 
+      SuperscriptBox[
+       FormBox["k1",
+        TraditionalForm], "2"], "+", 
+      RowBox[{"2", " ", 
+       RowBox[{
+        FormBox["k2",
+         TraditionalForm], "\[CenterDot]", 
+        FormBox["p1",
+         TraditionalForm]}]}], "+", 
+      SuperscriptBox[
+       FormBox["k2",
+        TraditionalForm], "2"], "+", 
+      SuperscriptBox[
+       FormBox["p1",
+        TraditionalForm], "2"]}], ")"}], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"2", " ", 
+       RowBox[{
+        FormBox["k1",
+         TraditionalForm], "\[CenterDot]", 
+        FormBox["p1",
+         TraditionalForm]}]}], "+", 
+      SuperscriptBox[
+       FormBox["k1",
+        TraditionalForm], "2"], "-", 
+      SuperscriptBox["m", "2"], "+", 
+      SuperscriptBox[
+       FormBox["p1",
+        TraditionalForm], "2"]}], ")"}], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"2", " ", 
+       RowBox[{
+        FormBox["k2",
+         TraditionalForm], "\[CenterDot]", 
+        FormBox["p1",
+         TraditionalForm]}]}], "+", 
+      SuperscriptBox[
+       FormBox["k2",
+        TraditionalForm], "2"], "-", 
+      SuperscriptBox["m", "2"], "+", 
+      SuperscriptBox[
+       FormBox["p1",
+        TraditionalForm], "2"]}], ")"}]}]], TraditionalForm]], "Output",
+ CellChangeTimes->{{3.6476591498954153`*^9, 3.647659154448707*^9}, {
+   3.647659212483944*^9, 3.6476592424946938`*^9}, {3.647659276775949*^9, 
+   3.647659294719982*^9}, {3.64765932848039*^9, 3.6476593426031713`*^9}, {
+   3.64765944777512*^9, 3.647659461755138*^9}, 3.647659615356717*^9, 
+   3.647659695406913*^9, 3.647659880165797*^9, 3.647660645935018*^9, {
+   3.647660728186707*^9, 3.647660755357375*^9}, 3.6476608004348097`*^9, 
+   3.647673813476565*^9, 3.649154564790619*^9, 3.649300476423768*^9, 
+   3.6493008230441856`*^9, 3.64930091018742*^9, 3.649301021008408*^9, 
+   3.649302018553199*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Normal Reduction", "Subsection",
+ CellChangeTimes->{{3.6476597063611107`*^9, 3.647659710951449*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"SetOptions", "[", 
+  RowBox[{"ApartVars", ",", 
+   RowBox[{"SignVars", "\[Rule]", 
+    RowBox[{"{", "}"}]}], ",", 
+   RowBox[{"VarsSign", "\[Rule]", "1"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.647660849302623*^9, 3.647660849510623*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"SignVars", "\[Rule]", 
+     RowBox[{"{", "}"}]}], ",", 
+    RowBox[{"VarsSign", "\[Rule]", "1"}]}], "}"}], TraditionalForm]], "Output",
+ CellChangeTimes->{3.647660850231224*^9, 3.647673813633016*^9, 
+  3.649154564917089*^9, 3.6493004779993277`*^9, 3.649300823075385*^9, 
+  3.649300910234218*^9, 3.649301021061983*^9, 3.649302018602302*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ApartAll", "[", 
+  RowBox[{"exp2", ",", "bas"}], "]"}]], "Input",
+ CellChangeTimes->{{3.647659156447116*^9, 3.647659162582855*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{"-", 
+    FractionBox[
+     RowBox[{"\[LeftDoubleBracketingBar]", 
+      FractionBox["1", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          SuperscriptBox["m", "2"], "-", 
+          SuperscriptBox[
+           FormBox["k1",
+            TraditionalForm], "2"]}], ")"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          SuperscriptBox["m", "2"], "-", 
+          SuperscriptBox[
+           FormBox["k2",
+            TraditionalForm], "2"]}], ")"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k1",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["k2",
+             TraditionalForm]}]}], "+", 
+          SuperscriptBox[
+           FormBox["k1",
+            TraditionalForm], "2"], "+", 
+          SuperscriptBox[
+           FormBox["k2",
+            TraditionalForm], "2"]}], ")"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", 
+           RowBox[{"2", " ", 
+            RowBox[{
+             FormBox["k1",
+              TraditionalForm], "\[CenterDot]", 
+             FormBox["p1",
+              TraditionalForm]}]}]}], "-", 
+          SuperscriptBox[
+           FormBox["k1",
+            TraditionalForm], "2"], "+", 
+          SuperscriptBox["m", "2"], "-", 
+          SuperscriptBox[
+           FormBox["p1",
+            TraditionalForm], "2"]}], ")"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", 
+           RowBox[{"2", " ", 
+            RowBox[{
+             FormBox["k2",
+              TraditionalForm], "\[CenterDot]", 
+             FormBox["p1",
+              TraditionalForm]}]}]}], "-", 
+          SuperscriptBox[
+           FormBox["k2",
+            TraditionalForm], "2"], "+", 
+          SuperscriptBox["m", "2"], "-", 
+          SuperscriptBox[
+           FormBox["p1",
+            TraditionalForm], "2"]}], ")"}]}]], 
+      "\[RightDoubleBracketingBar]"}], 
+     SuperscriptBox[
+      FormBox["p1",
+       TraditionalForm], "2"]]}], "+", 
+   FractionBox[
+    RowBox[{"\[LeftDoubleBracketingBar]", 
+     FractionBox["1", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox["m", "2"], "-", 
+         SuperscriptBox[
+          FormBox["k1",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox["m", "2"], "-", 
+         SuperscriptBox[
+          FormBox["k2",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k1",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["k2",
+            TraditionalForm]}]}], "+", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k1",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["k1",
+           TraditionalForm], "2"], "+", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k2",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["k2",
+           TraditionalForm], "2"], "+", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k1",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p1",
+             TraditionalForm]}]}]}], "-", 
+         SuperscriptBox[
+          FormBox["k1",
+           TraditionalForm], "2"], "+", 
+         SuperscriptBox["m", "2"], "-", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k2",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p1",
+             TraditionalForm]}]}]}], "-", 
+         SuperscriptBox[
+          FormBox["k2",
+           TraditionalForm], "2"], "+", 
+         SuperscriptBox["m", "2"], "-", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"]}], ")"}]}]], 
+     "\[RightDoubleBracketingBar]"}], 
+    SuperscriptBox[
+     FormBox["p1",
+      TraditionalForm], "2"]], "+", 
+   FractionBox[
+    RowBox[{"\[LeftDoubleBracketingBar]", 
+     FractionBox["1", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox["m", "2"], "-", 
+         SuperscriptBox[
+          FormBox["k1",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k1",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["k2",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["k1",
+           TraditionalForm], "2"], "+", 
+         SuperscriptBox[
+          FormBox["k2",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k1",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["k2",
+            TraditionalForm]}]}], "+", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k1",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["k1",
+           TraditionalForm], "2"], "+", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k2",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["k2",
+           TraditionalForm], "2"], "+", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k1",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p1",
+             TraditionalForm]}]}]}], "-", 
+         SuperscriptBox[
+          FormBox["k1",
+           TraditionalForm], "2"], "+", 
+         SuperscriptBox["m", "2"], "-", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k2",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p1",
+             TraditionalForm]}]}]}], "-", 
+         SuperscriptBox[
+          FormBox["k2",
+           TraditionalForm], "2"], "+", 
+         SuperscriptBox["m", "2"], "-", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"]}], ")"}]}]], 
+     "\[RightDoubleBracketingBar]"}], 
+    SuperscriptBox[
+     FormBox["p1",
+      TraditionalForm], "2"]], "-", 
+   FractionBox[
+    RowBox[{"\[LeftDoubleBracketingBar]", 
+     FractionBox["1", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox["m", "2"], "-", 
+         SuperscriptBox[
+          FormBox["k1",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox["m", "2"], "-", 
+         SuperscriptBox[
+          FormBox["k2",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k1",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["k2",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["k1",
+           TraditionalForm], "2"], "+", 
+         SuperscriptBox[
+          FormBox["k2",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k1",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["k2",
+            TraditionalForm]}]}], "+", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k1",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["k1",
+           TraditionalForm], "2"], "+", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k2",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["k2",
+           TraditionalForm], "2"], "+", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k1",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p1",
+             TraditionalForm]}]}]}], "-", 
+         SuperscriptBox[
+          FormBox["k1",
+           TraditionalForm], "2"], "+", 
+         SuperscriptBox["m", "2"], "-", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"]}], ")"}]}]], 
+     "\[RightDoubleBracketingBar]"}], 
+    SuperscriptBox[
+     FormBox["p1",
+      TraditionalForm], "2"]], "+", 
+   FractionBox[
+    RowBox[{"\[LeftDoubleBracketingBar]", 
+     FractionBox["1", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox["m", "2"], "-", 
+         SuperscriptBox[
+          FormBox["k2",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k1",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["k2",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["k1",
+           TraditionalForm], "2"], "+", 
+         SuperscriptBox[
+          FormBox["k2",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k1",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["k2",
+            TraditionalForm]}]}], "+", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k1",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["k1",
+           TraditionalForm], "2"], "+", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k2",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["k2",
+           TraditionalForm], "2"], "+", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k1",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p1",
+             TraditionalForm]}]}]}], "-", 
+         SuperscriptBox[
+          FormBox["k1",
+           TraditionalForm], "2"], "+", 
+         SuperscriptBox["m", "2"], "-", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k2",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p1",
+             TraditionalForm]}]}]}], "-", 
+         SuperscriptBox[
+          FormBox["k2",
+           TraditionalForm], "2"], "+", 
+         SuperscriptBox["m", "2"], "-", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"]}], ")"}]}]], 
+     "\[RightDoubleBracketingBar]"}], 
+    SuperscriptBox[
+     FormBox["p1",
+      TraditionalForm], "2"]], "-", 
+   FractionBox[
+    RowBox[{"\[LeftDoubleBracketingBar]", 
+     FractionBox["1", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox["m", "2"], "-", 
+         SuperscriptBox[
+          FormBox["k1",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox["m", "2"], "-", 
+         SuperscriptBox[
+          FormBox["k2",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k1",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["k2",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["k1",
+           TraditionalForm], "2"], "+", 
+         SuperscriptBox[
+          FormBox["k2",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k1",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["k2",
+            TraditionalForm]}]}], "+", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k1",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["k1",
+           TraditionalForm], "2"], "+", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k2",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["k2",
+           TraditionalForm], "2"], "+", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k2",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p1",
+             TraditionalForm]}]}]}], "-", 
+         SuperscriptBox[
+          FormBox["k2",
+           TraditionalForm], "2"], "+", 
+         SuperscriptBox["m", "2"], "-", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"]}], ")"}]}]], 
+     "\[RightDoubleBracketingBar]"}], 
+    SuperscriptBox[
+     FormBox["p1",
+      TraditionalForm], "2"]]}], TraditionalForm]], "Output",
+ CellChangeTimes->{
+  3.647659163058161*^9, {3.647659213549839*^9, 3.647659243808182*^9}, {
+   3.647659277951795*^9, 3.6476592958783073`*^9}, {3.647659329578053*^9, 
+   3.647659342928207*^9}, {3.6476594480706663`*^9, 3.647659461803956*^9}, 
+   3.64765961687224*^9, 3.647659695455345*^9, 3.6476598827836637`*^9, 
+   3.647660646011792*^9, {3.647660732564514*^9, 3.6476607568086843`*^9}, 
+   3.647660801946827*^9, 3.6476608526157217`*^9, 3.647673813739583*^9, 
+   3.649154565226177*^9, 3.649300481290843*^9, 3.649300823200181*^9, 
+   3.649300910374613*^9, 3.649301021168091*^9, 3.6493020187124453`*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Keep ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["k", "2"], TraditionalForm]]],
+ " Positive"
+}], "Subsection",
+ CellChangeTimes->{{3.647659716648718*^9, 3.647659756480595*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"SetOptions", "[", 
+  RowBox[{"ApartVars", ",", 
+   RowBox[{"SignVars", "\[Rule]", 
+    RowBox[{"bas", "[", 
+     RowBox[{"[", 
+      RowBox[{"{", 
+       RowBox[{"1", ",", "2"}], "}"}], "]"}], "]"}]}], ",", 
+   RowBox[{"VarsSign", "\[Rule]", "1"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.6476594646227713`*^9, 3.64765947481604*^9}, {
+  3.647659671700074*^9, 3.647659685217023*^9}, {3.647659766170456*^9, 
+  3.647659771681891*^9}, {3.6476608235517817`*^9, 3.6476608343751287`*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"SignVars", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       SuperscriptBox[
+        FormBox["k1",
+         TraditionalForm], "2"], ",", 
+       SuperscriptBox[
+        FormBox["k2",
+         TraditionalForm], "2"]}], "}"}]}], ",", 
+    RowBox[{"VarsSign", "\[Rule]", "1"}]}], "}"}], TraditionalForm]], "Output",
+ CellChangeTimes->{
+  3.6476594752548437`*^9, 3.647659695483877*^9, 3.647659772438875*^9, 
+   3.6476598891326113`*^9, 3.647660646051223*^9, 3.6476608041850967`*^9, {
+   3.6476608380220013`*^9, 3.6476608541450853`*^9}, 3.647673813794251*^9, 
+   3.649154565334385*^9, 3.649300482772805*^9, 3.6493008232313795`*^9, 
+   3.649300910421411*^9, 3.649301021227693*^9, 3.649302019070312*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ApartAll", "[", 
+  RowBox[{"exp2", ",", "bas"}], "]"}]], "Input",
+ CellChangeTimes->{{3.647659477279261*^9, 3.647659482328412*^9}}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{"-", 
+    FractionBox[
+     RowBox[{"\[LeftDoubleBracketingBar]", 
+      FractionBox["1", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          SuperscriptBox[
+           FormBox["k1",
+            TraditionalForm], "2"], "-", 
+          SuperscriptBox["m", "2"]}], ")"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          SuperscriptBox[
+           FormBox["k2",
+            TraditionalForm], "2"], "-", 
+          SuperscriptBox["m", "2"]}], ")"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k1",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["k2",
+             TraditionalForm]}]}], "+", 
+          SuperscriptBox[
+           FormBox["k1",
+            TraditionalForm], "2"], "+", 
+          SuperscriptBox[
+           FormBox["k2",
+            TraditionalForm], "2"]}], ")"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k1",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p1",
+             TraditionalForm]}]}], "+", 
+          SuperscriptBox[
+           FormBox["k1",
+            TraditionalForm], "2"], "-", 
+          SuperscriptBox["m", "2"], "+", 
+          SuperscriptBox[
+           FormBox["p1",
+            TraditionalForm], "2"]}], ")"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k2",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p1",
+             TraditionalForm]}]}], "+", 
+          SuperscriptBox[
+           FormBox["k2",
+            TraditionalForm], "2"], "-", 
+          SuperscriptBox["m", "2"], "+", 
+          SuperscriptBox[
+           FormBox["p1",
+            TraditionalForm], "2"]}], ")"}]}]], 
+      "\[RightDoubleBracketingBar]"}], 
+     SuperscriptBox[
+      FormBox["p1",
+       TraditionalForm], "2"]]}], "+", 
+   FractionBox[
+    RowBox[{"\[LeftDoubleBracketingBar]", 
+     FractionBox["1", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox[
+          FormBox["k1",
+           TraditionalForm], "2"], "-", 
+         SuperscriptBox["m", "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox[
+          FormBox["k2",
+           TraditionalForm], "2"], "-", 
+         SuperscriptBox["m", "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k1",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["k2",
+            TraditionalForm]}]}], "+", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k1",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["k1",
+           TraditionalForm], "2"], "+", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k2",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["k2",
+           TraditionalForm], "2"], "+", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k1",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["k1",
+           TraditionalForm], "2"], "-", 
+         SuperscriptBox["m", "2"], "+", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k2",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["k2",
+           TraditionalForm], "2"], "-", 
+         SuperscriptBox["m", "2"], "+", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"]}], ")"}]}]], 
+     "\[RightDoubleBracketingBar]"}], 
+    SuperscriptBox[
+     FormBox["p1",
+      TraditionalForm], "2"]], "+", 
+   FractionBox[
+    RowBox[{"\[LeftDoubleBracketingBar]", 
+     FractionBox["1", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox[
+          FormBox["k1",
+           TraditionalForm], "2"], "-", 
+         SuperscriptBox["m", "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox[
+          FormBox["k2",
+           TraditionalForm], "2"], "-", 
+         SuperscriptBox["m", "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k1",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["k2",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["k1",
+           TraditionalForm], "2"], "+", 
+         SuperscriptBox[
+          FormBox["k2",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k1",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["k2",
+            TraditionalForm]}]}], "+", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k1",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["k1",
+           TraditionalForm], "2"], "+", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k2",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["k2",
+           TraditionalForm], "2"], "+", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k2",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["k2",
+           TraditionalForm], "2"], "-", 
+         SuperscriptBox["m", "2"], "+", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"]}], ")"}]}]], 
+     "\[RightDoubleBracketingBar]"}], 
+    SuperscriptBox[
+     FormBox["p1",
+      TraditionalForm], "2"]], "-", 
+   FractionBox[
+    RowBox[{"\[LeftDoubleBracketingBar]", 
+     FractionBox["1", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox[
+          FormBox["k2",
+           TraditionalForm], "2"], "-", 
+         SuperscriptBox["m", "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k1",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["k2",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["k1",
+           TraditionalForm], "2"], "+", 
+         SuperscriptBox[
+          FormBox["k2",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k1",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["k2",
+            TraditionalForm]}]}], "+", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k1",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["k1",
+           TraditionalForm], "2"], "+", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k2",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["k2",
+           TraditionalForm], "2"], "+", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k1",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["k1",
+           TraditionalForm], "2"], "-", 
+         SuperscriptBox["m", "2"], "+", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k2",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["k2",
+           TraditionalForm], "2"], "-", 
+         SuperscriptBox["m", "2"], "+", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"]}], ")"}]}]], 
+     "\[RightDoubleBracketingBar]"}], 
+    SuperscriptBox[
+     FormBox["p1",
+      TraditionalForm], "2"]], "+", 
+   FractionBox[
+    RowBox[{"\[LeftDoubleBracketingBar]", 
+     FractionBox["1", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox[
+          FormBox["k1",
+           TraditionalForm], "2"], "-", 
+         SuperscriptBox["m", "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox[
+          FormBox["k2",
+           TraditionalForm], "2"], "-", 
+         SuperscriptBox["m", "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k1",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["k2",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["k1",
+           TraditionalForm], "2"], "+", 
+         SuperscriptBox[
+          FormBox["k2",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k1",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["k2",
+            TraditionalForm]}]}], "+", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k1",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["k1",
+           TraditionalForm], "2"], "+", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k2",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["k2",
+           TraditionalForm], "2"], "+", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k1",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["k1",
+           TraditionalForm], "2"], "-", 
+         SuperscriptBox["m", "2"], "+", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"]}], ")"}]}]], 
+     "\[RightDoubleBracketingBar]"}], 
+    SuperscriptBox[
+     FormBox["p1",
+      TraditionalForm], "2"]], "-", 
+   FractionBox[
+    RowBox[{"\[LeftDoubleBracketingBar]", 
+     FractionBox["1", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox[
+          FormBox["k1",
+           TraditionalForm], "2"], "-", 
+         SuperscriptBox["m", "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k1",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["k2",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["k1",
+           TraditionalForm], "2"], "+", 
+         SuperscriptBox[
+          FormBox["k2",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k1",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["k2",
+            TraditionalForm]}]}], "+", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k1",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["k1",
+           TraditionalForm], "2"], "+", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k2",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["k2",
+           TraditionalForm], "2"], "+", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k1",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["k1",
+           TraditionalForm], "2"], "-", 
+         SuperscriptBox["m", "2"], "+", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k2",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "+", 
+         SuperscriptBox[
+          FormBox["k2",
+           TraditionalForm], "2"], "-", 
+         SuperscriptBox["m", "2"], "+", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"]}], ")"}]}]], 
+     "\[RightDoubleBracketingBar]"}], 
+    SuperscriptBox[
+     FormBox["p1",
+      TraditionalForm], "2"]]}], TraditionalForm]], "Output",
+ CellChangeTimes->{3.647659483088686*^9, 3.647659695528474*^9, 
+  3.647659773606024*^9, 3.6476598899851294`*^9, 3.647660646160945*^9, 
+  3.647660805287614*^9, 3.647660855053864*^9, 3.647673813903726*^9, 
+  3.649154565821755*^9, 3.649300483677582*^9, 3.649300823356176*^9, 
+  3.649300910577405*^9, 3.649301021334277*^9, 3.649302019222519*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Keep ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["k", "2"], TraditionalForm]]],
+ " Negative"
+}], "Subsection",
+ CellChangeTimes->{{3.647659716648718*^9, 3.647659756480595*^9}, {
+  3.647660604568021*^9, 3.647660608014542*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"SetOptions", "[", 
+  RowBox[{"ApartVars", ",", 
+   RowBox[{"SignVars", "\[Rule]", 
+    RowBox[{"bas", "[", 
+     RowBox[{"[", 
+      RowBox[{"{", 
+       RowBox[{"1", ",", "2"}], "}"}], "]"}], "]"}]}], ",", 
+   RowBox[{"VarsSign", "\[Rule]", 
+    RowBox[{"-", "1"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{3.647659849678842*^9, 3.647660861979189*^9}],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"SignVars", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       SuperscriptBox[
+        FormBox["k1",
+         TraditionalForm], "2"], ",", 
+       SuperscriptBox[
+        FormBox["k2",
+         TraditionalForm], "2"]}], "}"}]}], ",", 
+    RowBox[{"VarsSign", "\[Rule]", 
+     RowBox[{"-", "1"}]}]}], "}"}], TraditionalForm]], "Output",
+ CellChangeTimes->{3.647659850292838*^9, 3.647659893758238*^9, 
+  3.647660646200076*^9, 3.647660812487685*^9, 3.647660862546825*^9, 
+  3.6476738139437513`*^9, 3.649154566172534*^9, 3.6493004868911*^9, 
+  3.649300823387375*^9, 3.6493009107489986`*^9, 3.64930102137873*^9, 
+  3.649302019338695*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ApartAll", "[", 
+  RowBox[{"exp2", ",", "bas"}], "]"}]], "Input"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   FractionBox[
+    RowBox[{"\[LeftDoubleBracketingBar]", 
+     FractionBox["1", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox["m", "2"], "-", 
+         SuperscriptBox[
+          FormBox["k1",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k1",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["k2",
+             TraditionalForm]}]}]}], "-", 
+         SuperscriptBox[
+          FormBox["k1",
+           TraditionalForm], "2"], "-", 
+         SuperscriptBox[
+          FormBox["k2",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k1",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["k2",
+             TraditionalForm]}]}]}], "-", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k1",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "-", 
+         SuperscriptBox[
+          FormBox["k1",
+           TraditionalForm], "2"], "-", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k2",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "-", 
+         SuperscriptBox[
+          FormBox["k2",
+           TraditionalForm], "2"], "-", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k1",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p1",
+             TraditionalForm]}]}]}], "-", 
+         SuperscriptBox[
+          FormBox["k1",
+           TraditionalForm], "2"], "+", 
+         SuperscriptBox["m", "2"], "-", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k2",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p1",
+             TraditionalForm]}]}]}], "-", 
+         SuperscriptBox[
+          FormBox["k2",
+           TraditionalForm], "2"], "+", 
+         SuperscriptBox["m", "2"], "-", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"]}], ")"}]}]], 
+     "\[RightDoubleBracketingBar]"}], 
+    SuperscriptBox[
+     FormBox["p1",
+      TraditionalForm], "2"]], "-", 
+   FractionBox[
+    RowBox[{"\[LeftDoubleBracketingBar]", 
+     FractionBox["1", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox["m", "2"], "-", 
+         SuperscriptBox[
+          FormBox["k1",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox["m", "2"], "-", 
+         SuperscriptBox[
+          FormBox["k2",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k1",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["k2",
+             TraditionalForm]}]}]}], "-", 
+         SuperscriptBox[
+          FormBox["k1",
+           TraditionalForm], "2"], "-", 
+         SuperscriptBox[
+          FormBox["k2",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k1",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["k2",
+             TraditionalForm]}]}]}], "-", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k1",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "-", 
+         SuperscriptBox[
+          FormBox["k1",
+           TraditionalForm], "2"], "-", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k2",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "-", 
+         SuperscriptBox[
+          FormBox["k2",
+           TraditionalForm], "2"], "-", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k1",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p1",
+             TraditionalForm]}]}]}], "-", 
+         SuperscriptBox[
+          FormBox["k1",
+           TraditionalForm], "2"], "+", 
+         SuperscriptBox["m", "2"], "-", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"]}], ")"}]}]], 
+     "\[RightDoubleBracketingBar]"}], 
+    SuperscriptBox[
+     FormBox["p1",
+      TraditionalForm], "2"]], "+", 
+   FractionBox[
+    RowBox[{"\[LeftDoubleBracketingBar]", 
+     FractionBox["1", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox["m", "2"], "-", 
+         SuperscriptBox[
+          FormBox["k2",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k1",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["k2",
+             TraditionalForm]}]}]}], "-", 
+         SuperscriptBox[
+          FormBox["k1",
+           TraditionalForm], "2"], "-", 
+         SuperscriptBox[
+          FormBox["k2",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k1",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["k2",
+             TraditionalForm]}]}]}], "-", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k1",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "-", 
+         SuperscriptBox[
+          FormBox["k1",
+           TraditionalForm], "2"], "-", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k2",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "-", 
+         SuperscriptBox[
+          FormBox["k2",
+           TraditionalForm], "2"], "-", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k1",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p1",
+             TraditionalForm]}]}]}], "-", 
+         SuperscriptBox[
+          FormBox["k1",
+           TraditionalForm], "2"], "+", 
+         SuperscriptBox["m", "2"], "-", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k2",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p1",
+             TraditionalForm]}]}]}], "-", 
+         SuperscriptBox[
+          FormBox["k2",
+           TraditionalForm], "2"], "+", 
+         SuperscriptBox["m", "2"], "-", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"]}], ")"}]}]], 
+     "\[RightDoubleBracketingBar]"}], 
+    SuperscriptBox[
+     FormBox["p1",
+      TraditionalForm], "2"]], "-", 
+   FractionBox[
+    RowBox[{"\[LeftDoubleBracketingBar]", 
+     FractionBox["1", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox["m", "2"], "-", 
+         SuperscriptBox[
+          FormBox["k1",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox["m", "2"], "-", 
+         SuperscriptBox[
+          FormBox["k2",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k1",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["k2",
+             TraditionalForm]}]}]}], "-", 
+         SuperscriptBox[
+          FormBox["k1",
+           TraditionalForm], "2"], "-", 
+         SuperscriptBox[
+          FormBox["k2",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k1",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["k2",
+             TraditionalForm]}]}]}], "-", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k1",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "-", 
+         SuperscriptBox[
+          FormBox["k1",
+           TraditionalForm], "2"], "-", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k2",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "-", 
+         SuperscriptBox[
+          FormBox["k2",
+           TraditionalForm], "2"], "-", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k2",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p1",
+             TraditionalForm]}]}]}], "-", 
+         SuperscriptBox[
+          FormBox["k2",
+           TraditionalForm], "2"], "+", 
+         SuperscriptBox["m", "2"], "-", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"]}], ")"}]}]], 
+     "\[RightDoubleBracketingBar]"}], 
+    SuperscriptBox[
+     FormBox["p1",
+      TraditionalForm], "2"]], "-", 
+   FractionBox[
+    RowBox[{"\[LeftDoubleBracketingBar]", 
+     FractionBox["1", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox["m", "2"], "-", 
+         SuperscriptBox[
+          FormBox["k1",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox["m", "2"], "-", 
+         SuperscriptBox[
+          FormBox["k2",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k1",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["k2",
+             TraditionalForm]}]}]}], "-", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k1",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "-", 
+         SuperscriptBox[
+          FormBox["k1",
+           TraditionalForm], "2"], "-", 
+         RowBox[{"2", " ", 
+          RowBox[{
+           FormBox["k2",
+            TraditionalForm], "\[CenterDot]", 
+           FormBox["p1",
+            TraditionalForm]}]}], "-", 
+         SuperscriptBox[
+          FormBox["k2",
+           TraditionalForm], "2"], "-", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k1",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p1",
+             TraditionalForm]}]}]}], "-", 
+         SuperscriptBox[
+          FormBox["k1",
+           TraditionalForm], "2"], "+", 
+         SuperscriptBox["m", "2"], "-", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k2",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p1",
+             TraditionalForm]}]}]}], "-", 
+         SuperscriptBox[
+          FormBox["k2",
+           TraditionalForm], "2"], "+", 
+         SuperscriptBox["m", "2"], "-", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"]}], ")"}]}]], 
+     "\[RightDoubleBracketingBar]"}], 
+    SuperscriptBox[
+     FormBox["p1",
+      TraditionalForm], "2"]], "+", 
+   FractionBox[
+    RowBox[{"\[LeftDoubleBracketingBar]", 
+     FractionBox["1", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox["m", "2"], "-", 
+         SuperscriptBox[
+          FormBox["k1",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox["m", "2"], "-", 
+         SuperscriptBox[
+          FormBox["k2",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k1",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["k2",
+             TraditionalForm]}]}]}], "-", 
+         SuperscriptBox[
+          FormBox["k1",
+           TraditionalForm], "2"], "-", 
+         SuperscriptBox[
+          FormBox["k2",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k1",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p1",
+             TraditionalForm]}]}]}], "-", 
+         SuperscriptBox[
+          FormBox["k1",
+           TraditionalForm], "2"], "+", 
+         SuperscriptBox["m", "2"], "-", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            FormBox["k2",
+             TraditionalForm], "\[CenterDot]", 
+            FormBox["p1",
+             TraditionalForm]}]}]}], "-", 
+         SuperscriptBox[
+          FormBox["k2",
+           TraditionalForm], "2"], "+", 
+         SuperscriptBox["m", "2"], "-", 
+         SuperscriptBox[
+          FormBox["p1",
+           TraditionalForm], "2"]}], ")"}]}]], 
+     "\[RightDoubleBracketingBar]"}], 
+    SuperscriptBox[
+     FormBox["p1",
+      TraditionalForm], "2"]]}], TraditionalForm]], "Output",
+ CellChangeTimes->{{3.647659520923382*^9, 3.6476595260125017`*^9}, 
+   3.6476596956234617`*^9, 3.64765985142211*^9, 3.647659894611847*^9, 
+   3.647660646275732*^9, 3.6476608134613457`*^9, 3.647660863669345*^9, 
+   3.6476738140546513`*^9, 3.649154566903603*^9, 3.6493004892778387`*^9, 
+   3.6493008236057677`*^9, 3.649300910904992*^9, 3.6493010214918756`*^9, 
+   3.6493020195304527`*^9}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1199, 583},
+WindowMargins->{{23, Automatic}, {Automatic, 19}},
+PrivateNotebookOptions->{"VersionedStylesheet"->{"Default.nb"[8.] -> False}},
+ShowSelection->True,
+FrontEndVersion->"10.2 for Mac OS X x86 (32-bit, 64-bit Kernel) (July 29, \
+2015)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[567, 22, 100, 1, 64, "Section"],
+Cell[670, 25, 91, 2, 28, "Input"],
+Cell[764, 29, 567, 12, 63, "Input"],
+Cell[1334, 43, 351, 9, 28, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1722, 57, 150, 2, 64, "Section"],
+Cell[CellGroupData[{
+Cell[1897, 63, 429, 10, 51, "Input"],
+Cell[2329, 75, 1203, 22, 50, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3569, 102, 2969, 44, 28, "Input"],
+Cell[6541, 148, 3550, 93, 61, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10128, 246, 181, 3, 28, "Input"],
+Cell[10312, 251, 1504, 28, 145, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11853, 284, 378, 9, 28, "Input"],
+Cell[12234, 295, 951, 14, 28, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13234, 315, 165, 2, 64, "Section"],
+Cell[CellGroupData[{
+Cell[13424, 321, 456, 12, 28, "Input"],
+Cell[13883, 335, 958, 25, 35, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14878, 365, 1070, 30, 55, "Input"],
+Cell[15951, 397, 3214, 106, 54, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[19202, 508, 132, 2, 44, "Subsection"],
+Cell[CellGroupData[{
+Cell[19359, 514, 265, 6, 28, "Input"],
+Cell[19627, 522, 21444, 725, 283, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[41120, 1253, 197, 7, 45, "Subsection"],
+Cell[CellGroupData[{
+Cell[41342, 1264, 428, 10, 28, "Input"],
+Cell[41773, 1276, 583, 14, 35, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[42393, 1295, 155, 3, 28, "Input"],
+Cell[42551, 1300, 21749, 736, 283, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[64349, 2042, 246, 8, 45, "Subsection"],
+Cell[CellGroupData[{
+Cell[64620, 2054, 325, 9, 28, "Input"],
+Cell[64948, 2065, 559, 15, 35, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[65544, 2085, 89, 2, 28, "Input"],
+Cell[65636, 2089, 21800, 736, 283, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[87497, 2832, 163, 2, 64, "Section"],
+Cell[CellGroupData[{
+Cell[87685, 2838, 620, 15, 28, "Input"],
+Cell[88308, 2855, 1085, 32, 35, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[89430, 2892, 1185, 34, 55, "Input"],
+Cell[90618, 2928, 2965, 97, 54, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[93620, 3030, 106, 1, 44, "Subsection"],
+Cell[CellGroupData[{
+Cell[93751, 3035, 264, 6, 28, "Input"],
+Cell[94018, 3043, 404, 9, 28, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[94459, 3057, 155, 3, 28, "Input"],
+Cell[94617, 3062, 15014, 495, 207, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[109680, 3563, 197, 7, 45, "Subsection"],
+Cell[CellGroupData[{
+Cell[109902, 3574, 506, 11, 28, "Input"],
+Cell[110411, 3587, 763, 19, 35, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[111211, 3611, 155, 3, 28, "Input"],
+Cell[111369, 3616, 14444, 481, 207, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[125862, 4103, 246, 8, 45, "Subsection"],
+Cell[CellGroupData[{
+Cell[126133, 4115, 375, 10, 28, "Input"],
+Cell[126511, 4127, 698, 19, 35, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[127246, 4151, 89, 2, 28, "Input"],
+Cell[127338, 4155, 15026, 501, 207, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
