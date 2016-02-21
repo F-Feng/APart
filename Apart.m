@@ -1,6 +1,6 @@
 (* ::Package:: *)
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*InnerApart*)
 
 
@@ -29,7 +29,7 @@ ClearAll[ApartIR];
 ApartIR/:MakeBoxes[ApartIR[pcs_List,cs_List,np_List,vars_List],TraditionalForm]:=With[{exp=Apply[Times,(Defer[Evaluate[#]]&/@(Map[(#.vars)&,pcs]+cs))^np]},RowBox[{"\[LeftDoubleBracketingBar]",MakeBoxes[exp,TraditionalForm],"\[RightDoubleBracketingBar]"}]];
 
 
-ApartIRSort[exp_]:=exp/.ApartIR[pcs_,cs_,np_,vars_]:>ApartIR[Sequence@@PcsCsNpSort[pcs,cs,np],vars];
+ApartIRSort[exp_,sortFunc_:PcsCsNpSort]:=exp/.ApartIR[pcs_,cs_,np_,vars_]:>ApartIR[Sequence@@sortFunc[pcs,cs,np],vars];
 
 
 PcsCsNpSort[pcs_List,cs_List,np_List]:=PcsCsNpSort[pcs,cs,np]=Transpose@Sort[Transpose[{pcs,cs,np}],Function[{x,y},Order[Part[x,1],Part[y,1]]>0]]
@@ -104,7 +104,7 @@ Return[tmp];
 ];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*InnerLog & ApartParse*)
 
 
@@ -149,7 +149,7 @@ Return[tmp];
 ];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Some Auxiliary Function*)
 
 
