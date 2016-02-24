@@ -1,6 +1,6 @@
 (* ::Package:: *)
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*InnerApart*)
 
 
@@ -113,11 +113,11 @@ InnerLog[x_ y_]:=InnerLog[x]+InnerLog[y];
 InnerLog[Power[x_,y_Integer]]:=y InnerLog[x];
 
 
-ClearAll[VarsCoefficient,ApartVars];
+ClearAll[FactorSign,ApartVars];
 SignVars::usage="SignVars->{vars} is an Options of ApartVars";
 VarsSign::usage="VarsSign->1 or -1 is an Options of ApartVars";
 Options[ApartVars]={SignVars->{},VarsSign->-1};
-VarsCoefficient[exp_,OptionsPattern[ApartVars]]:=Block[{tmp},
+FactorSign[exp_,OptionsPattern[ApartVars]]:=Block[{tmp},
 tmp=Map[Coefficient[exp,#]&,OptionValue[SignVars]];
 tmp=DeleteCases[tmp,0];
 If[Length[tmp]==0,Return[1]];
@@ -132,7 +132,7 @@ tmp=InnerLog[Factor[exp]];
 logs=Union[Cases[tmp,_InnerLog,{0,Infinity}]]/.InnerLog->Identity;
 Scan[Function[x,If[Not[PolynomialQ[x,vars]||FreeQ[x,Alternatives@@vars]],Print["Error: ",x," is not Polynomial of ",vars];Abort[]]],logs];
 Scan[Function[x,If[Length[Normal[CoefficientArrays[x,vars]]]>2,Print["Error: ",x," is not Linear Polynomial of ",vars];Abort[]]],logs];
-tmp=tmp/.InnerLog[y_]:>VF[y/VarsCoefficient[y]//Factor]+InnerLog[VarsCoefficient[y]];
+tmp=tmp/.InnerLog[y_]:>VF[y/FactorSign[y]//Factor]+InnerLog[FactorSign[y]];
 tmp=tmp/.InnerLog[1]->0/.VF[x_]:>InnerLog[Hold[x]];
 tmp=Collect[tmp,_InnerLog];
 tmp=tmp/.c_. InnerLog[y_]:>VF[Normal@CoefficientArrays[ReleaseHold[y],vars],c];
@@ -149,7 +149,7 @@ Return[tmp];
 ];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Some Auxiliary Function*)
 
 
@@ -213,7 +213,7 @@ RemoveApart[exp_]:=exp/.ApartIR[pcs_,cs_,np_,vars_]:>Apply[Times,(Map[(#.vars)&,
 FireArguments[ApartIR[pcs_,cs_,np_,vars_],p2pn_:Identity]:=FireArguments[ApartIR[pcs,cs,np,vars],p2pn]=Sequence[p2pn[Map[(#.vars)&,pcs]+cs],-np];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Mathematica 9 & Below*)
 
 
