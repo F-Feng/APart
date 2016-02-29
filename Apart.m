@@ -117,11 +117,13 @@ ClearAll[FactorWithSign,ApartVars];
 SignVars::usage="SignVars->{vars} is an Options of ApartVars";
 VarsSign::usage="VarsSign->1 or -1 is an Options of ApartVars";
 Options[ApartVars]={SignVars->{},VarsSign->-1};
-FactorWithSign[exp_,OptionsPattern[ApartVars]]:=Block[{tmp},
+FactorWithSign[exp_,OptionsPattern[ApartVars]]:=Block[{tmp,pi,sign},
 tmp=Map[Coefficient[exp,#]&,OptionValue[SignVars]];
-tmp=DeleteCases[tmp,0];
-If[Length[tmp]==0,Return[1]];
-Return[tmp[[1]] OptionValue[VarsSign]];
+If[Length[DeleteCases[tmp,0]]==0,Return[1]];
+pi=First[FirstPosition[tmp,Except[0],Heads->False]];
+sign=OptionValue[VarsSign];
+If[Head[sign]===List,sign=sign[[pi]]];
+Return[tmp[[pi]] sign];
 ];
 
 
@@ -149,7 +151,7 @@ Return[tmp];
 ];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Some Auxiliary Function*)
 
 
