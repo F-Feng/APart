@@ -117,7 +117,7 @@ ClearAll[FactorWithSign,ApartVars];
 SignVars::usage="SignVars->{vars} is an Options of ApartVars";
 VarsSign::usage="VarsSign->1 or -1 is an Options of ApartVars";
 Options[ApartVars]={SignVars->{},VarsSign->-1};
-FactorWithSign[exp_,OptionsPattern[ApartVars]]:=Block[{tmp,pi,sign},
+FactorWithSign[exp_,pnSign_,OptionsPattern[ApartVars]]:=Block[{tmp,pi,sign},
 tmp=Map[Coefficient[exp,#]&,OptionValue[SignVars]];
 If[Length[DeleteCases[tmp,0]]==0,Return[1]];
 pi=First[FirstPosition[tmp,Except[0],Heads->False]];
@@ -125,6 +125,8 @@ sign=OptionValue[VarsSign];
 If[Head[sign]===List,sign=sign[[pi]]];
 Return[tmp[[pi]] sign];
 ];
+DV0FactorWithSign=DownValues[FactorWithSign];
+ResetFactorWithSign[]:=(DownValues[FactorWithSign]=DV0FactorWithSign);
 
 
 Clear[ApartAll];
@@ -134,7 +136,7 @@ tmp=InnerLog[Factor[exp]];
 logs=Union[Cases[tmp,_InnerLog,{0,Infinity}]]/.InnerLog->Identity;
 Scan[Function[x,If[Not[PolynomialQ[x,vars]||FreeQ[x,Alternatives@@vars]],Print["Error: ",x," is not Polynomial of ",vars];Abort[]]],logs];
 Scan[Function[x,If[Length[Normal[CoefficientArrays[x,vars]]]>2,Print["Error: ",x," is not Linear Polynomial of ",vars];Abort[]]],logs];
-tmp=tmp/.InnerLog[y_]:>VF[y/FactorWithSign[y]//Factor]+InnerLog[FactorWithSign[y]];
+tmp=Distribute[VF[tmp]]/.VF[c_. InnerLog[y_]]:>c (VF[y/FactorWithSign[y,Sign[c]]//Factor]+InnerLog[FactorWithSign[y,Sign[c]]]);
 tmp=tmp/.InnerLog[1]->0/.VF[x_]:>InnerLog[Hold[x]];
 tmp=Collect[tmp,_InnerLog];
 tmp=tmp/.c_. InnerLog[y_]:>VF[Normal@CoefficientArrays[ReleaseHold[y],vars],c];
