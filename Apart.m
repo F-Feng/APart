@@ -137,6 +137,7 @@ logs=Union[Cases[tmp,_InnerLog,{0,Infinity}]]/.InnerLog->Identity;
 Scan[Function[x,If[Not[PolynomialQ[x,vars]||FreeQ[x,Alternatives@@vars]],Print["Error: ",x," is not Polynomial of ",vars];Abort[]]],logs];
 Scan[Function[x,If[Length[Normal[CoefficientArrays[x,vars]]]>2,Print["Error: ",x," is not Linear Polynomial of ",vars];Abort[]]],logs];
 tmp=Distribute[VF[tmp]]/.VF[c_. InnerLog[y_]]:>c (VF[y/FactorWithSign[y,Sign[c]]//Factor]+InnerLog[FactorWithSign[y,Sign[c]]]);
+On[Assert];Assert[FreeQ[tmp,_FactorWithSign]];
 tmp=tmp/.InnerLog[1]->0/.VF[x_]:>InnerLog[Hold[x]];
 tmp=Collect[tmp,_InnerLog];
 tmp=tmp/.c_. InnerLog[y_]:>VF[Normal@CoefficientArrays[ReleaseHold[y],vars],c];
