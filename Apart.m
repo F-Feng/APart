@@ -1,6 +1,6 @@
 (* ::Package:: *)
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*InnerApart*)
 
 
@@ -45,11 +45,11 @@ InnerApart[pcs_List,cs_List,np:{___,0,___},vars_List]:=InnerApart[Sequence@@Tran
 
 InnerApart[xpcs_List,xcs_List,xnp_List,vars_List]:=Module[{lnp,VF,in,tmp,ns,res,p,pcs,cs,np},
 {pcs,cs,np}=PcsCsNpSort[xpcs,xcs,xnp];
-If[Head[CachedApart[pcs,cs,np]]=!=CachedApart,Return[CachedApart[pcs,cs,np]];];
+If[Head[CachedApart[pcs,cs,np,vars]]=!=CachedApart,Return[CachedApart[pcs,cs,np,vars]];];
 ns=CachedNullSpace[pcs,cs];
 If[ns===False,
 tmp=ApartIR[pcs,cs,np,vars];
-CachedApart[pcs,cs,np]=tmp;
+CachedApart[pcs,cs,np,vars]=tmp;
 Clear[lnp,VF,in,ns,res,p,pcs,cs,np];
 ClearSystemCache[];
 Return[tmp];
@@ -65,7 +65,7 @@ tmp=Table[Block[{lnp=np},If[in==p,0,
 If[Part[ns,in]===0,0,Part[lnp,p]--;Part[lnp,in]++;-Part[ns,in]/Part[ns,p] InnerApart[pcs,cs,lnp,vars]]
 ]],{in,Length[ns]}];
 tmp=Collect[Plus@@tmp,_ApartIR,InnerCollectFunction];
-CachedApart[pcs,cs,np]=tmp;
+CachedApart[pcs,cs,np,vars]=tmp;
 Clear[lnp,VF,in,ns,res,p,pcs,cs,np];
 ClearSystemCache[];
 Return[tmp];
@@ -75,7 +75,7 @@ tmp=Table[Block[{lnp=np},
 If[Part[ns,in]===0,0,Part[lnp,in]++;Part[ns,in]/res InnerApart[pcs,cs,lnp,vars]]
 ],{in,Length[ns]}];
 tmp=Collect[Plus@@tmp,_ApartIR,InnerCollectFunction];
-CachedApart[pcs,cs,np]=tmp;
+CachedApart[pcs,cs,np,vars]=tmp;
 Clear[lnp,VF,in,ns,res,p,pcs,cs,np];
 ClearSystemCache[];
 Return[tmp];
@@ -86,7 +86,7 @@ If[Part[ns,p]===0,
 tmp=Block[{lnp=np},Part[lnp,p]=0;InnerApart[pcs,cs,lnp,vars]];
 tmp=tmp/.ApartIR[ypcs_,ycs_,ynp_,_]:>InnerApart[Prepend[ypcs,Part[pcs,p]],Prepend[ycs,Part[cs,p]],Prepend[ynp,Part[np,p]],vars];
 tmp=Collect[tmp,_ApartIR,InnerCollectFunction];
-CachedApart[pcs,cs,np]=tmp;
+CachedApart[pcs,cs,np,vars]=tmp;
 Clear[lnp,VF,in,ns,res,p,pcs,cs,np];
 ClearSystemCache[];
 Return[tmp];
@@ -97,7 +97,7 @@ tmp=Table[Block[{lnp=np},Part[lnp,p]--;If[in==p,If[res===0,0,res/Part[ns,p] Inne
 If[Part[ns,in]===0,0,-Part[ns,in]/Part[ns,p] InnerApart[pcs,cs,lnp,vars]]
 ]],{in,Length[ns]}];
 tmp=Collect[Plus@@tmp,_ApartIR,InnerCollectFunction];
-CachedApart[pcs,cs,np]=tmp;
+CachedApart[pcs,cs,np,vars]=tmp;
 Clear[lnp,VF,in,ns,res,p,pcs,cs,np];
 ClearSystemCache[];
 Return[tmp];
