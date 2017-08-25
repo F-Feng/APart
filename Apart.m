@@ -105,7 +105,7 @@ Return[tmp];
 ];
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*InnerLog & ApartParse*)
 
 
@@ -214,9 +214,6 @@ ApartComplete[exp_]:=exp/.a_ApartIR:>ApartComplete[a];
 
 
 RemoveApart[exp_]:=exp/.ApartIR[pcs_,cs_,np_,vars_]:>Apply[Times,(Map[(#.vars)&,pcs]+cs)^np];
-
-
-FireArguments[ApartIR[pcs_,cs_,np_,vars_],p2pn_:Identity]:=FireArguments[ApartIR[pcs,cs,np,vars],p2pn]=Sequence[p2pn[Map[(#.vars)&,pcs]+cs],-np];
 
 
 (* ::Subsection::Closed:: *)
