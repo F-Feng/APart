@@ -1,6 +1,6 @@
 (* ::Package:: *)
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*InnerApart*)
 
 
@@ -42,6 +42,9 @@ ClearCachedApart[]:=Clear[CachedApart];
 ApartNull::usage="ApartNull=1 @ Integrand; ApartNull=0 @ Loop Integral";
 InnerApart[pcs_List,cs_List,np:{0...},vars_List]:=ApartNull;
 InnerApart[pcs_List,cs_List,np:{___,0,___},vars_List]:=InnerApart[Sequence@@Transpose@DeleteCases[{pcs,cs,np}//Transpose,p_List/;Part[p,3]===0],vars];
+
+
+ApartNull2IR[vars_]:=ApartIR[IdentityMatrix[Length[vars]],Table[1,Length[vars]],Table[0,Length[vars]],vars];
 
 
 InnerApart[xpcs_List,xcs_List,xnp_List,vars_List]:=Module[{lnp,VF,in,tmp,ns,res,p,pcs,cs,np},
